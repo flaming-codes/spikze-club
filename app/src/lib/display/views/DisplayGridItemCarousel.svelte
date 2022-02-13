@@ -27,8 +27,6 @@
     };
 
     timer = setTimeout(() => {
-      console.log("-- isVisible timeout resolved");
-
       isVisible = false;
     }, getDelay());
   }
@@ -38,11 +36,7 @@
   }
 
   const afterLeave = () => {
-    console.log("-- afterLeave");
-
     setTimeout(() => {
-      console.log("-- afterLeave timeout resolved");
-
       const maxIndex = countItems;
 
       direction = directions[Math.floor(Math.random() * directions.length)];
@@ -50,8 +44,6 @@
       isVisible = true;
     }, 100);
   };
-
-  $: console.log("index", index, "isVisible", isVisible);
 </script>
 
 <div class="h-full w-full">
@@ -70,6 +62,13 @@
         {#if index === 0}<slot name="0" />{/if}
         {#if index === 1}<slot name="1" />{/if}
         {#if index === 2}<slot name="2" />{/if}
+        {#if index === 3}<slot name="3" />{/if}
+        {#if index === 4}<slot name="4" />{/if}
+        {#if index === 5}<slot name="5" />{/if}
+        {#if index === 6}<slot name="6" />{/if}
+        {#if index === 7}<slot name="7" />{/if}
+        {#if index === 8}<slot name="8" />{/if}
+        {#if index === 9}<slot name="9" />{/if}
       </TransitionChild>
     </Transition>
   </div>
