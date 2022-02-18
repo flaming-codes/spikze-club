@@ -81,13 +81,13 @@
           />
           <img
             slot="3"
-            src="/static/img/about/scotts.webp"
+            src="/img/about/scotts.webp"
             alt="Scottish shore landscape"
             class="object-cover w-full h-full"
           />
           <img
             slot="4"
-            src="/static/img/about/savanna.webp"
+            src="/img/about/savanna.webp"
             alt="Moody savanna landscape at dawn"
             class="object-cover w-full h-full"
           />

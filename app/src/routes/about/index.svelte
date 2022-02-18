@@ -13,7 +13,7 @@
     <SquareImageHeader
       slot="header"
       img={{
-        src: "/static/img/about/surfer.webp",
+        src: "/img/about/surfer.webp",
         alt: "Black-and-white image, zoomed in from a distance, of a surfer turning on a wave"
       }}
     >
