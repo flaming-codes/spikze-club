@@ -4,7 +4,7 @@
   export let sectionTitle: string = undefined;
   export let sectionTitleSize: "lg" | "xl" = undefined;
   export let withHeaderSpacing: boolean = undefined;
-  // export let withSectionTitleSpacing: boolean = undefined;
+  export let withSectionTitleSpacing: boolean = undefined;
 </script>
 
 <!-- slot 'header'-->
@@ -37,7 +37,7 @@
         style="writing-mode: vertical-lr;"
         class={clsx("hidden sm:inline sticky top-20 mb-24", {
           // TODO: The layout here is shaky as margins the element out of its space. Check. -Tom
-          // ["mt-20"]: withSectionTitleSpacing,
+          ["mt-20"]: withSectionTitleSpacing
         })}
       >
         {sectionTitle}

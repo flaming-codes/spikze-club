@@ -1,4 +1,6 @@
 <script lang="ts">
+  import CarbonIcon from "$lib/icon/views/CarbonIcon.svelte";
+
   import Icon from "@iconify/svelte";
   import clsx from "clsx";
   import {
@@ -32,7 +34,7 @@
 
   {#if isExternal}
     <span>
-      <Icon icon="carbon:arrow-up-right" className="ml-4" />
+      <CarbonIcon variant="external-link" class="ml-4" />
     </span>
   {/if}
 

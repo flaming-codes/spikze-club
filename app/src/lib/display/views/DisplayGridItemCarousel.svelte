@@ -14,7 +14,7 @@
 
   $: if (isVisible) {
     const getDelay = () => {
-      const ms = 3_000;
+      const ms = 4_000;
 
       if (index === 0) {
         if (withRandomSeedInitialDelay) {
@@ -52,10 +52,10 @@
     <Transition
       show={isVisible}
       class="h-full w-full"
-      enter="ease-in-out duration-700 transform transition"
+      enter="ease-in-out duration-1000 transform transition"
       enterFrom={direction.enterFrom}
       enterTo={direction.enterTo}
-      leave="ease-in-out duration-700 transform transition"
+      leave="ease-in-out duration-1000 transform transition"
       leaveFrom={direction.leaveFrom}
       leaveTo={direction.leaveTo}
       on:afterLeave={afterLeave}

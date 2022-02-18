@@ -1,6 +1,5 @@
 <script lang="ts" context="module">
   import ProminentDisplayTitle from "$lib/display/views/ProminentDisplayTitle.svelte";
-  import Button from "$lib/input/views/Button.svelte";
   import ButtonLink from "$lib/input/views/ButtonLink.svelte";
   import PageLayout from "$lib/layout/views/PageLayout.svelte";
   import DisplayGrid from "$lib/display/views/DisplayGrid.svelte";
@@ -9,6 +8,9 @@
   import FeatureGridItemSimpleTupleDisplay from "$lib/display/views/FeatureGridItemSimpleTupleDisplay.svelte";
   import type { CarouselDirection } from "$lib/display/models/space";
   import DisplaySingluarCarouselTitle from "$lib/display/views/DisplaySingluarCarouselTitle.svelte";
+  import SectionLayout from "$lib/layout/views/SectionLayout.svelte";
+  import PrimaryNavigationGridLayout from "$lib/layout/views/PrimaryNavigationGridLayout.svelte";
+  import DisplayGridItemLink from "$lib/display/views/DisplayGridItemLink.svelte";
 
   export const prerender = true;
 
@@ -40,37 +42,62 @@
   ];
 </script>
 
-<PageLayout withTopPadding>
-  <ProminentDisplayTitle alignment="start" color="primary">
-    <h1>Game on!</h1>
-  </ProminentDisplayTitle>
-  <ButtonLink href="/" alt="About" isExternal isOutline>What?</ButtonLink>
-</PageLayout>
+<PageLayout>
+  <SectionLayout>
+    <DisplayGrid slot="header" variant="4/3">
+      <DisplayGridItem color="bright" class="col-span-2 row-span-2">
+        <DisplayGridItemCarousel {directions} countItems={3}>
+          <DisplaySingluarCarouselTitle slot="0" label="spikze.club" />
+          <DisplaySingluarCarouselTitle slot="1" label="darts arcade" />
+          <DisplaySingluarCarouselTitle slot="2" label="scoreboard" />
+        </DisplayGridItemCarousel>
+      </DisplayGridItem>
 
-<PageLayout withTopPadding>
-  <DisplayGrid variant="2/1">
-    <DisplayGridItem color="bright">
-      <DisplayGridItemCarousel {directions} countItems={3}>
-        <DisplaySingluarCarouselTitle slot="0" label="spikze.club" />
-        <DisplaySingluarCarouselTitle slot="1" label="darts arcade" />
-        <DisplaySingluarCarouselTitle slot="2" label="scoreboard" />
-      </DisplayGridItemCarousel>
-    </DisplayGridItem>
+      <DisplayGridItem color="muted" class="col-span-2 row-span-2">
+        <DisplayGridItemCarousel {directions} countItems={3} withInitialDelay={150}>
+          <DisplaySingluarCarouselTitle slot="0" label="spikze.club" alignment="end" />
+          <DisplaySingluarCarouselTitle slot="1" label="darts arcade" alignment="end" />
+          <DisplaySingluarCarouselTitle slot="2" label="scoreboard" alignment="end" />
+        </DisplayGridItemCarousel>
+      </DisplayGridItem>
 
-    <DisplayGridItem color="muted">
-      <DisplayGridItemCarousel {directions} countItems={3} withInitialDelay={150}>
-        <DisplaySingluarCarouselTitle slot="0" label="spikze.club" alignment="end" />
-        <DisplaySingluarCarouselTitle slot="1" label="darts arcade" alignment="end" />
-        <DisplaySingluarCarouselTitle slot="2" label="scoreboard" alignment="end" />
-      </DisplayGridItemCarousel>
-    </DisplayGridItem>
-  </DisplayGrid>
+      <DisplayGridItem color="muted" class="col-span-2">
+        <DisplayGridItemCarousel
+          {directions}
+          countItems={5}
+          withInitialDelay={500}
+          withRandomSeedInitialDelay={3000}
+        >
+          <FeatureGridItemSimpleTupleDisplay slot="0" value="Game On!" label="Hi & welcome!" />
+          <FeatureGridItemSimpleTupleDisplay
+            slot="1"
+            value="Scoreboard for matches"
+            label="Mission briefing"
+          />
+          <FeatureGridItemSimpleTupleDisplay
+            slot="2"
+            value="Offline available"
+            label="Modern App"
+          />
+          <img
+            slot="3"
+            src="/static/img/about/scotts.webp"
+            alt="Scottish shore landscape"
+            class="object-cover w-full h-full"
+          />
+          <img
+            slot="4"
+            src="/static/img/about/savanna.webp"
+            alt="Moody savanna landscape at dawn"
+            class="object-cover w-full h-full"
+          />
+        </DisplayGridItemCarousel>
+      </DisplayGridItem>
 
-  <DisplayGrid variant="2/1">
-    <DisplayGridItem color="midnight">
-      <div class="h-full w-full duration-200 hover:rotate-[35deg]">
-        <a
-          class="h-full w-full"
+      <DisplayGridItem color="midnight">
+        <DisplayGridItemLink
+          isExternal
+          class="transform duration-200 group-hover:rotate-[35deg]"
           href="/games/around-the-clock"
           alt="Link to the game 'Around the clock'"
         >
@@ -78,94 +105,44 @@
             <span slot="value">Around the clock</span>
             <span slot="label">Game</span>
           </FeatureGridItemSimpleTupleDisplay>
-        </a>
-      </div>
-    </DisplayGridItem>
+        </DisplayGridItemLink>
+      </DisplayGridItem>
 
-    <DisplayGridItem color="dark">
-      <div class="h-full w-full duration-700 hover:font-bold hover:uppercase">
-        <a class="h-full w-full" href="/games/turf-wars" alt="Link to the game 'Turf war'">
+      <DisplayGridItem color="dark">
+        <DisplayGridItemLink
+          isExternal
+          class="transform duration-700 group-hover:font-bold hover:uppercase"
+          href="/games/turf-war"
+          alt="Link to the game 'Turf War'"
+        >
           <FeatureGridItemSimpleTupleDisplay>
             <span slot="value">Turf War</span>
             <span slot="label">Game</span>
           </FeatureGridItemSimpleTupleDisplay>
-        </a>
-      </div>
-    </DisplayGridItem>
-  </DisplayGrid>
-</PageLayout>
-
-<!--
-    <DisplayGridItemCarousel countItems={1}>
-        <DisplayGridItem color="dark">
-          <FeatureGridItemSimpleTupleDisplay>
-            <span slot="value">Vienna</span>
-            <span slot="label">Austria</span>
-          </FeatureGridItemSimpleTupleDisplay>
-        </DisplayGridItem>
-      </DisplayGridItemCarousel>
--->
-<!--
-
-
-<script lang="ts">
-  import DisplayGrid from "$lib/display/views/DisplayGrid.svelte";
-  import DisplayGridItem from "$lib/display/views/DisplayGridItem.svelte";
-  import DisplayGridItemBannerText from "$lib/display/views/DisplayGridItemBannerText.svelte";
-  import DisplayGridItemCarousel from "$lib/display/views/DisplayGridItemCarousel.svelte";
-  import FeatureGridItemSimpleTupleDisplay from "$lib/display/views/FeatureGridItemSimpleTupleDisplay.svelte";
-</script>
-
-  <DisplayGrid variant="4/2">
-    <div class="col-span-2 row-span-2">
-      <DisplayGridItem color="midnight">
-        <DisplayGridItemBannerText>
-          <h2 slot="value">Title</h2>
-        </DisplayGridItemBannerText>
+        </DisplayGridItemLink>
       </DisplayGridItem>
+    </DisplayGrid>
+  </SectionLayout>
+
+  <SectionLayout withHeaderSpacing>
+    <ProminentDisplayTitle slot="header" alignment="start" color="muted" size="lg">
+      <h1>Hi! 👋</h1>
+    </ProminentDisplayTitle>
+    <PrimaryNavigationGridLayout slot="primaryNavigation">
+      <ButtonLink href="/about" alt="About" isOutline>About</ButtonLink>
+    </PrimaryNavigationGridLayout>
+
+    <div class="prose prose-base">
+      <p>
+        Welcome to spikze.club, a small progressive web app (PWA) that provides a collection of
+        mini-games for playing darts with your guys and gals.
+      </p>
+      <p>
+        Please note that this is not a 3D darts game, it's really just a glorified scorebore. You
+        can install this web app, as offline support is implemented.
+      </p>
+
+      <code lang="text">Still in developemt, not usable yet!</code>
     </div>
-    <DisplayGridItem>
-      <DisplayGridItemCarousel countItems={3}>
-        <img
-          alt=""
-          slot="0"
-          class="h-full w-full object-cover"
-          src="https://images.pexels.com/photos/6829559/pexels-photo-6829559.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-        />
-        <img
-          alt=""
-          slot="1"
-          class="h-full w-full object-cover"
-          src="https://images.pexels.com/photos/163439/football-american-football-quarterback-runner-163439.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-        />
-        <img
-          alt=""
-          slot="2"
-          class="h-full w-full object-cover"
-          src="https://images.pexels.com/photos/1430931/pexels-photo-1430931.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-        />
-      </DisplayGridItemCarousel>
-    </DisplayGridItem>
-  
-    <DisplayGridItem color="dark">
-      <FeatureGridItemSimpleTupleDisplay>
-        <span slot="value">Vienna</span>
-        <span slot="label">Austria</span>
-      </FeatureGridItemSimpleTupleDisplay>
-    </DisplayGridItem>
-  
-    <DisplayGridItem color="bright">
-      <FeatureGridItemSimpleTupleDisplay>
-        <span slot="value">09:40</span>
-        <span slot="label">Start</span>
-      </FeatureGridItemSimpleTupleDisplay>
-    </DisplayGridItem>
-  
-    <DisplayGridItem color="bright">
-      <FeatureGridItemSimpleTupleDisplay>
-        <span slot="value">11:45</span>
-        <span slot="label">End</span>
-      </FeatureGridItemSimpleTupleDisplay>
-    </DisplayGridItem>
-  </DisplayGrid>
--->
+  </SectionLayout>
+</PageLayout>

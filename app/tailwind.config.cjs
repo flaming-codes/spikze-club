@@ -13,6 +13,7 @@ module.exports = {
         primary: colors.gray[900],
         secondary: colors.yellow[200],
         ternary: colors.yellow[50],
+        "primary-muted": colors.slate[700],
         // neutral: colors.gray[50],
         "inverse-primary": colors.white
       }
