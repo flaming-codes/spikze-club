@@ -5,7 +5,8 @@
     buttonBaseMixin,
     buttonLinkBaseAnimationMixin,
     buttonBaseOutlineMixin,
-    buttonLinkOutlineBaseAnimationMixin
+    buttonLinkOutlineBaseAnimationMixin,
+    buttonBaseColorMixin
   } from "../mixins/button";
 
   export let href: string;
@@ -22,6 +23,7 @@
   class={clsx(
     `${buttonBaseMixin} ${buttonLinkBaseAnimationMixin} inline-flex items-center justify-center`,
     {
+      [`${buttonBaseColorMixin}`]: !isOutline,
       [`${buttonBaseOutlineMixin} ${buttonLinkOutlineBaseAnimationMixin}`]: isOutline
     }
   )}

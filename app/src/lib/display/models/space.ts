@@ -1,11 +1,13 @@
-// Can be kept globally as they're the
-// same for every component.
-export const directions: Array<{
+export type CarouselDirection = {
   enterFrom: string;
   enterTo: string;
   leaveFrom: string;
   leaveTo: string;
-}> = [
+};
+
+// Can be kept globally as they're the
+// same for every component.
+export const directions: CarouselDirection[] = [
   {
     enterFrom: "translate-x-full",
     enterTo: "translate-x-0",

@@ -7,15 +7,15 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Space Grotesk", "Helvetica", ...defaultTheme.fontFamily.sans]
+      },
+      colors: {
+        ...defaultTheme.colors,
+        primary: colors.gray[900],
+        secondary: colors.yellow[200],
+        ternary: colors.yellow[50],
+        // neutral: colors.gray[50],
+        "inverse-primary": colors.white
       }
-    },
-    colors: {
-      ...defaultTheme.colors,
-      primary: colors.coolGray[900],
-      secondary: colors.yellow[200],
-      ternary: colors.yellow[50],
-      neutral: colors.coolGray[50],
-      "inverse-primary": colors.white
     }
   },
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/aspect-ratio")]

@@ -3,21 +3,111 @@
   import Button from "$lib/input/views/Button.svelte";
   import ButtonLink from "$lib/input/views/ButtonLink.svelte";
   import PageLayout from "$lib/layout/views/PageLayout.svelte";
+  import DisplayGrid from "$lib/display/views/DisplayGrid.svelte";
+  import DisplayGridItem from "$lib/display/views/DisplayGridItem.svelte";
+  import DisplayGridItemCarousel from "$lib/display/views/DisplayGridItemCarousel.svelte";
+  import FeatureGridItemSimpleTupleDisplay from "$lib/display/views/FeatureGridItemSimpleTupleDisplay.svelte";
+  import type { CarouselDirection } from "$lib/display/models/space";
+  import DisplaySingluarCarouselTitle from "$lib/display/views/DisplaySingluarCarouselTitle.svelte";
 
   export const prerender = true;
+
+  const directions: CarouselDirection[] = [
+    {
+      enterFrom: "translate-x-[200%]",
+      enterTo: "translate-x-0",
+      leaveFrom: "translate-x-0",
+      leaveTo: "-translate-x-[200%]"
+    },
+    {
+      enterFrom: "translate-y-full",
+      enterTo: "translate-y-0",
+      leaveFrom: "translate-y-0",
+      leaveTo: "-translate-y-full"
+    },
+    {
+      enterFrom: "-translate-x-[200%]",
+      enterTo: "translate-x-0",
+      leaveFrom: "translate-x-0",
+      leaveTo: "translate-x-[200%]"
+    },
+    {
+      enterFrom: "-translate-y-full",
+      enterTo: "translate-y-0",
+      leaveFrom: "translate-y-0",
+      leaveTo: "translate-y-full"
+    }
+  ];
 </script>
 
 <PageLayout withTopPadding>
-  <ProminentDisplayTitle alignment="start">
-    <h1>spikze.club</h1>
+  <ProminentDisplayTitle alignment="start" color="primary">
+    <h1>Game on!</h1>
   </ProminentDisplayTitle>
+  <ButtonLink href="/" alt="About" isExternal isOutline>What?</ButtonLink>
+</PageLayout>
 
-  <Button isOutline on:click={() => alert("alert")}>Button Text</Button>
+<PageLayout withTopPadding>
+  <DisplayGrid variant="2/1">
+    <DisplayGridItem color="bright">
+      <DisplayGridItemCarousel {directions} countItems={3}>
+        <DisplaySingluarCarouselTitle slot="0" label="spikze.club" />
+        <DisplaySingluarCarouselTitle slot="1" label="darts arcade" />
+        <DisplaySingluarCarouselTitle slot="2" label="scoreboard" />
+      </DisplayGridItemCarousel>
+    </DisplayGridItem>
 
-  <ButtonLink href="/" alt="Alt" isExternal>Link Text</ButtonLink>
+    <DisplayGridItem color="muted">
+      <DisplayGridItemCarousel {directions} countItems={3} withInitialDelay={150}>
+        <DisplaySingluarCarouselTitle slot="0" label="spikze.club" alignment="end" />
+        <DisplaySingluarCarouselTitle slot="1" label="darts arcade" alignment="end" />
+        <DisplaySingluarCarouselTitle slot="2" label="scoreboard" alignment="end" />
+      </DisplayGridItemCarousel>
+    </DisplayGridItem>
+  </DisplayGrid>
+
+  <DisplayGrid variant="2/1">
+    <DisplayGridItem color="midnight">
+      <div class="h-full w-full duration-200 hover:rotate-[35deg]">
+        <a
+          class="h-full w-full"
+          href="/games/around-the-clock"
+          alt="Link to the game 'Around the clock'"
+        >
+          <FeatureGridItemSimpleTupleDisplay>
+            <span slot="value">Around the clock</span>
+            <span slot="label">Game</span>
+          </FeatureGridItemSimpleTupleDisplay>
+        </a>
+      </div>
+    </DisplayGridItem>
+
+    <DisplayGridItem color="dark">
+      <div class="h-full w-full duration-700 hover:font-bold hover:uppercase">
+        <a class="h-full w-full" href="/games/turf-wars" alt="Link to the game 'Turf war'">
+          <FeatureGridItemSimpleTupleDisplay>
+            <span slot="value">Turf War</span>
+            <span slot="label">Game</span>
+          </FeatureGridItemSimpleTupleDisplay>
+        </a>
+      </div>
+    </DisplayGridItem>
+  </DisplayGrid>
 </PageLayout>
 
 <!--
+    <DisplayGridItemCarousel countItems={1}>
+        <DisplayGridItem color="dark">
+          <FeatureGridItemSimpleTupleDisplay>
+            <span slot="value">Vienna</span>
+            <span slot="label">Austria</span>
+          </FeatureGridItemSimpleTupleDisplay>
+        </DisplayGridItem>
+      </DisplayGridItemCarousel>
+-->
+<!--
+
+
 <script lang="ts">
   import DisplayGrid from "$lib/display/views/DisplayGrid.svelte";
   import DisplayGridItem from "$lib/display/views/DisplayGridItem.svelte";
