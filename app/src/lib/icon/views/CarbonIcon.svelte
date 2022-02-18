@@ -1,7 +1,4 @@
 <script lang="ts">
-  import Icon from "@iconify/svelte";
-  import clsx from "clsx";
-
   // Using a link so that 'clsx' can eliminate
   // all other variant compared to an enum, which
   // should lead to a smaller size at runtime.
@@ -11,10 +8,14 @@
   export { cn as class };
 </script>
 
-<Icon
-  icon={clsx({
-    "carbon:arrow-right": variant === "internal-link",
-    "carbon:arrow-up-right": variant === "external-link"
-  })}
-  class={cn}
-/>
+{#if variant === "internal-link"}
+  {#await import("carbon-icons-svelte/lib/ArrowUpRight20") then Icon}
+    <Icon.default class={cn} />
+  {/await}
+{/if}
+
+{#if variant === "external-link"}
+  {#await import("carbon-icons-svelte/lib/ArrowRight20") then Icon}
+    <Icon.default class={cn} />
+  {/await}
+{/if}

@@ -1,7 +1,6 @@
 <script lang="ts">
   import CarbonIcon from "$lib/icon/views/CarbonIcon.svelte";
 
-  import Icon from "@iconify/svelte";
   import clsx from "clsx";
   import {
     buttonBaseMixin,
