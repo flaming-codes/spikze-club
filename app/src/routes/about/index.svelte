@@ -6,6 +6,7 @@
   import SectionLayout from "$lib/layout/views/SectionLayout.svelte";
   import SectionAnchor from "$lib/section/views/SectionAnchor.svelte";
   import { getAnchorRef } from "$lib/nav/models/routes";
+  import DisplayProse from "$lib/display/views/DisplayProse.svelte";
 </script>
 
 <PageLayout>
@@ -38,11 +39,11 @@
 
   <SectionAnchor id="section-a">
     <SectionLayout sectionTitle="Me, Myself & I">
-      <div class="prose">
+      <DisplayProse>
         <p>
-          I'm a My name is Tom Schönmann and I'm a cloud native full stack web developer with years
-          of hands-on experience in various international teams distributed around the globe, facing
-          many challenges with often tight deadlines.
+          I'm a cloud native full stack web developer with years of hands-on experience in various
+          international teams distributed around the globe, facing many challenges with often tight
+          deadlines.
         </p>
         <p>
           I've been developing services and platforms with a user base of 90k+ and growing. My areas
@@ -54,14 +55,14 @@
           software to handle thousands of items and interfaces to hardware devices, just to name a
           few.
         </p>
-      </div>
+      </DisplayProse>
     </SectionLayout>
   </SectionAnchor>
 
   <SectionAnchor id="section-b">
     <SectionLayout withHeaderSpacing sectionTitle="More">
-      <div class="prose">
-        <h4>flaming.codes</h4>
+      <DisplayProse>
+        <h3>flaming.codes</h3>
         <p>
           To see other projects I'm working on or was part of, just visit <a
             href="https://flaming.codes/work#projects">projects on flaming.codes</a
@@ -83,7 +84,7 @@
           flaming.codes is around 1k+ pages big) as well as having fun using Next.js and GCP as well
           as Azure for ML-based augmentations, such as the text-to-speech service or translation.
         </p>
-      </div>
+      </DisplayProse>
     </SectionLayout>
   </SectionAnchor>
 </PageLayout>
