@@ -1,4 +1,13 @@
 <script lang="ts" context="module">
+  export const prerender = true;
+
+  export const load: Load = () => ({
+    status: 200,
+    maxage: 60 * 60 * 24
+  });
+</script>
+
+<script lang="ts">
   import ProminentDisplayTitle from "$lib/display/views/ProminentDisplayTitle.svelte";
   import ButtonLink from "$lib/input/views/ButtonLink.svelte";
   import PageLayout from "$lib/layout/views/PageLayout.svelte";
@@ -11,8 +20,7 @@
   import SectionLayout from "$lib/layout/views/SectionLayout.svelte";
   import PrimaryNavigationGridLayout from "$lib/layout/views/PrimaryNavigationGridLayout.svelte";
   import DisplayGridItemLink from "$lib/display/views/DisplayGridItemLink.svelte";
-
-  export const prerender = true;
+  import type { Load } from "@sveltejs/kit";
 
   const directions: CarouselDirection[] = [
     {
