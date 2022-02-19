@@ -32,8 +32,8 @@
         ["text-5xl md:text-6xl lg:text-7xl"]: sectionTitleSize === "xl"
       })}
     >
-      <h3 class="sm:hidden">{sectionTitle}</h3>
-      <h3
+      <h2 class="sm:hidden">{sectionTitle}</h2>
+      <h2
         style="writing-mode: vertical-lr;"
         class={clsx("hidden sm:inline sticky top-20 mb-24", {
           // TODO: The layout here is shaky as margins the element out of its space. Check. -Tom
@@ -41,7 +41,7 @@
         })}
       >
         {sectionTitle}
-      </h3>
+      </h2>
     </div>
   {/if}
 </section>

@@ -120,8 +120,8 @@
         <DisplayGridItemLink
           isExternal
           class="transform duration-700 group-hover:font-bold hover:uppercase"
-          href="/games/turf-war"
-          alt="Link to the game 'Turf War'"
+          href="/games/turf-wars"
+          alt="Link to the game 'Turf Wars'"
         >
           <FeatureGridItemSimpleTupleDisplay>
             <span slot="value">Turf War</span>
