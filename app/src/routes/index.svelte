@@ -106,7 +106,7 @@
         <DisplayGridItemLink
           isExternal
           class="transform duration-200 group-hover:rotate-[35deg]"
-          href="/games/around-the-clock"
+          href="/game/around-the-clock"
           alt="Link to the game 'Around the clock'"
         >
           <FeatureGridItemSimpleTupleDisplay>
@@ -120,7 +120,7 @@
         <DisplayGridItemLink
           isExternal
           class="transform duration-700 group-hover:font-bold hover:uppercase"
-          href="/games/turf-wars"
+          href="/game/turf-wars"
           alt="Link to the game 'Turf Wars'"
         >
           <FeatureGridItemSimpleTupleDisplay>
@@ -137,6 +137,7 @@
       <h1>Hi! 👋</h1>
     </ProminentDisplayTitle>
     <PrimaryNavigationGridLayout slot="primaryNavigation">
+      <ButtonLink href="/game" alt="All games">All games</ButtonLink>
       <ButtonLink href="/about" alt="About" isOutline>About</ButtonLink>
     </PrimaryNavigationGridLayout>
 

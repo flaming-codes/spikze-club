@@ -1,5 +1,10 @@
 <script lang="ts" context="module">
   export const prerender = true;
+
+  export const load: Load = async () => ({
+    status: 200,
+    maxage: 60 * 60 * 24
+  });
 </script>
 
 <script lang="ts">
@@ -13,6 +18,7 @@
   import PageLayout from "$lib/layout/views/PageLayout.svelte";
   import PrimaryNavigationGridLayout from "$lib/layout/views/PrimaryNavigationGridLayout.svelte";
   import SectionLayout from "$lib/layout/views/SectionLayout.svelte";
+  import type { Load } from "@sveltejs/kit";
 </script>
 
 <PageLayout>
@@ -39,12 +45,12 @@
       </div>
       <DisplayGridItem color="black">
         <DisplayGridItemCarousel countItems={2}>
-          <img alt="" slot="0" class="h-full w-full object-cover" src="/img/games/moon.webp" />
+          <img alt="" slot="0" class="h-full w-full object-cover" src="/img/game/moon.webp" />
           <img
             alt=""
             slot="1"
             class="h-full w-full object-cover"
-            src="/img/games/tree-night-lake.webp"
+            src="/img/game/tree-night-lake.webp"
           />
         </DisplayGridItemCarousel>
       </DisplayGridItem>
@@ -72,10 +78,10 @@
     </DisplayGrid>
 
     <PrimaryNavigationGridLayout slot="primaryNavigation">
-      <ButtonLink href="/games/around-the-clock/session" alt="Start a new game instance"
+      <ButtonLink href="/game/around-the-clock/session" alt="Start a new game instance"
         >Start game</ButtonLink
       >
-      <ButtonLink href="/games/" alt="Show all games" isOutline>All games</ButtonLink>
+      <ButtonLink href="/game/" alt="Show all games" isOutline>All games</ButtonLink>
     </PrimaryNavigationGridLayout>
 
     <DisplayProse>

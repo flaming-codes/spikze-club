@@ -1,8 +1,11 @@
+<!--
+  Source: https://carbon-icons-svelte.onrender.com/
+-->
 <script lang="ts">
   // Using a link so that 'clsx' can eliminate
   // all other variant compared to an enum, which
   // should lead to a smaller size at runtime.
-  export let variant: "internal-link" | "external-link";
+  export let variant: "internal-link" | "external-link" | "section-link";
 
   let cn: string = undefined;
   export { cn as class };
@@ -16,6 +19,12 @@
 
 {#if variant === "external-link"}
   {#await import("carbon-icons-svelte/lib/ArrowRight20") then Icon}
+    <Icon.default class={cn} />
+  {/await}
+{/if}
+
+{#if variant === "section-link"}
+  {#await import("carbon-icons-svelte/lib/ArrowDown20") then Icon}
     <Icon.default class={cn} />
   {/await}
 {/if}
