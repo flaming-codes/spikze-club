@@ -13,7 +13,7 @@
   {#if $$slots.label}
     <slot name="label" />
   {:else}
-    <span class="text-9xl font-bold">
+    <span class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold">
       {label}
     </span>
   {/if}
