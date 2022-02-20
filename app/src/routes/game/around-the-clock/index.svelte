@@ -87,7 +87,8 @@
     <DisplayProse>
       <h3>Mission Briefing</h3>
       <p>
-        Around the clock is race between the players, where each tries to catch the other one first.
+        'Around the clock' is race between the players, where each tries to catch the other one
+        first.
       </p>
 
       <h3>Playing</h3>
