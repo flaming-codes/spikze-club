@@ -1,22 +1,37 @@
 <script lang="ts">
+  import clsx from "clsx";
+
   export let value: string = undefined;
   export let label: string = undefined;
+  export let size: "lg" | "md" = undefined;
 </script>
 
 <!-- Use 'span' for slot -->
 <!-- https://stackoverflow.com/questions/67852559/pass-svelte-component-as-props -->
-<div class="h-full w-full flex flex-col justify-center items-center space-y-3 text-center">
-  <span class="text-xl md:text-2xl lg:text-3xl">
+<div class="h-full w-full flex flex-col justify-center items-center space-y-3 text-center p-2">
+  <span
+    class={clsx({
+      hidden: !$$slots.value && !value,
+      "text-sm sm:text-md md:text-lg lg:text-2xl xl:text-3xl": !size || size === "lg",
+      "text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl": size === "md"
+    })}
+  >
     {#if $$slots.value}
       <slot name="value" />
-    {:else}
+    {:else if value}
       {value}
     {/if}
   </span>
-  <span class="text-lg md:text-xl font-lighter">
+  <span
+    class={clsx("font-lighter", {
+      hidden: !$$slots.label && !label,
+      "text-xs lg:text-lg xl:text-xl": !size || size === "lg",
+      "text-xs lg:text-md xl:text-lg": size === "md"
+    })}
+  >
     {#if $$slots.label}
       <slot name="label" />
-    {:else}
+    {:else if label}
       {label}
     {/if}
   </span>

@@ -5,6 +5,7 @@
   export let sectionTitleSize: "lg" | "xl" = undefined;
   export let withHeaderSpacing: boolean = undefined;
   export let withSectionTitleSpacing: boolean = undefined;
+  export let withContentTopSpacing: boolean = undefined;
 </script>
 
 <!-- slot 'header'-->
@@ -22,26 +23,32 @@
         <slot name="primaryNavigation" />
       </div>
     {/if}
-    <slot />
+    <div
+      class={clsx({
+        "mt-8": withContentTopSpacing
+      })}
+    >
+      <slot />
+    </div>
   </div>
   {#if sectionTitle}
     <div
       class={clsx("font-bold", {
-        ["text-3xl"]: !sectionTitleSize,
-        ["text-5xl"]: sectionTitleSize === "lg",
-        ["text-7xl"]: sectionTitleSize === "xl"
+        ["text-xl sm:text-2xl lg:text-3xl"]: !sectionTitleSize,
+        ["text-3xl sm:text-4xl lg:text-5xl"]: sectionTitleSize === "lg",
+        ["text-5xl md:text-6xl lg:text-7xl"]: sectionTitleSize === "xl"
       })}
     >
-      <h3 class="sm:hidden">{sectionTitle}</h3>
-      <h3
+      <h2 class="sm:hidden">{sectionTitle}</h2>
+      <h2
         style="writing-mode: vertical-lr;"
         class={clsx("hidden sm:inline sticky top-20 mb-24", {
           // TODO: The layout here is shaky as margins the element out of its space. Check. -Tom
-          ["mt-20"]: withSectionTitleSpacing
+          ["pt-20"]: withSectionTitleSpacing
         })}
       >
         {sectionTitle}
-      </h3>
+      </h2>
     </div>
   {/if}
 </section>

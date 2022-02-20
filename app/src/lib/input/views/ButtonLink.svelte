@@ -12,8 +12,8 @@
 
   export let href: string;
   export let alt: string;
-  export let isExternal: boolean = undefined;
-  export let isOutline: boolean = undefined;
+  export let targetVariant: "external" | "section" = undefined;
+  export let variant: "outline" | "bare" = undefined;
 </script>
 
 <a
@@ -22,23 +22,27 @@
   {href}
   aria-label={alt}
   class={clsx(
-    `${buttonBaseMixin} ${buttonLinkBaseAnimationMixin} inline-flex items-center justify-center`,
+    `${buttonBaseMixin} ${buttonLinkBaseAnimationMixin} inline-flex items-center justify-center gap-2`,
     {
-      [`${buttonBaseColorMixin}`]: !isOutline,
-      [`${buttonBaseOutlineMixin} ${buttonLinkOutlineBaseAnimationMixin}`]: isOutline
+      [`${buttonBaseColorMixin}`]: !variant,
+      [`${buttonBaseOutlineMixin} ${buttonLinkOutlineBaseAnimationMixin}`]: variant === "outline"
     }
   )}
 >
   <slot />
 
-  {#if isExternal}
+  {#if targetVariant === "external"}
     <span>
-      <CarbonIcon variant="external-link" class="ml-4" />
+      <CarbonIcon variant="external-link" />
+    </span>
+  {:else if targetVariant === "section"}
+    <span>
+      <CarbonIcon variant="section-link" />
     </span>
   {/if}
 
   {#if $$slots.icon}
-    <span class="ml-4">
+    <span>
       <slot name="icon" />
     </span>
   {/if}

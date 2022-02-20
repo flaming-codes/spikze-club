@@ -1,4 +1,13 @@
 <script lang="ts" context="module">
+  export const prerender = true;
+
+  export const load: Load = () => ({
+    status: 200,
+    maxage: 60 * 60 * 24
+  });
+</script>
+
+<script lang="ts">
   import ProminentDisplayTitle from "$lib/display/views/ProminentDisplayTitle.svelte";
   import ButtonLink from "$lib/input/views/ButtonLink.svelte";
   import PageLayout from "$lib/layout/views/PageLayout.svelte";
@@ -11,8 +20,7 @@
   import SectionLayout from "$lib/layout/views/SectionLayout.svelte";
   import PrimaryNavigationGridLayout from "$lib/layout/views/PrimaryNavigationGridLayout.svelte";
   import DisplayGridItemLink from "$lib/display/views/DisplayGridItemLink.svelte";
-
-  export const prerender = true;
+  import type { Load } from "@sveltejs/kit";
 
   const directions: CarouselDirection[] = [
     {
@@ -98,7 +106,7 @@
         <DisplayGridItemLink
           isExternal
           class="transform duration-200 group-hover:rotate-[35deg]"
-          href="/games/around-the-clock"
+          href="/game/around-the-clock"
           alt="Link to the game 'Around the clock'"
         >
           <FeatureGridItemSimpleTupleDisplay>
@@ -112,8 +120,8 @@
         <DisplayGridItemLink
           isExternal
           class="transform duration-700 group-hover:font-bold hover:uppercase"
-          href="/games/turf-war"
-          alt="Link to the game 'Turf War'"
+          href="/game/turf-wars"
+          alt="Link to the game 'Turf Wars'"
         >
           <FeatureGridItemSimpleTupleDisplay>
             <span slot="value">Turf War</span>
@@ -129,7 +137,8 @@
       <h1>Hi! 👋</h1>
     </ProminentDisplayTitle>
     <PrimaryNavigationGridLayout slot="primaryNavigation">
-      <ButtonLink href="/about" alt="About" isOutline>About</ButtonLink>
+      <ButtonLink href="/game" alt="All games">All games</ButtonLink>
+      <ButtonLink href="/about" alt="About" variant="outline">About</ButtonLink>
     </PrimaryNavigationGridLayout>
 
     <div class="prose prose-base">
