@@ -51,7 +51,7 @@
   <div class="relative h-full w-full overflow-hidden">
     <Transition
       show={isVisible}
-      class="h-full w-full"
+      class="h-full w-full transform motion-reduce:transition-none"
       enter="ease-in-out duration-1000 transform transition"
       enterFrom={direction.enterFrom}
       enterTo={direction.enterTo}

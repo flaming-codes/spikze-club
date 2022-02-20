@@ -105,7 +105,7 @@
       <DisplayGridItem color="midnight">
         <DisplayGridItemLink
           isExternal
-          class="transform duration-200 group-hover:rotate-[35deg]"
+          class="transform duration-300 group-hover:rotate-[30deg] motion-reduce:transition-none"
           href="/game/around-the-clock"
           alt="Link to the game 'Around the clock'"
         >
@@ -119,7 +119,7 @@
       <DisplayGridItem color="dark">
         <DisplayGridItemLink
           isExternal
-          class="transform duration-700 group-hover:font-bold hover:uppercase"
+          class="transform duration-700 group-hover:font-bold hover:uppercase motion-reduce:transition-none"
           href="/game/turf-wars"
           alt="Link to the game 'Turf Wars'"
         >
@@ -133,15 +133,15 @@
   </SectionLayout>
 
   <SectionLayout withHeaderSpacing>
-    <ProminentDisplayTitle slot="header" alignment="start" color="muted" size="lg">
-      <h1>Hi! 👋</h1>
+    <ProminentDisplayTitle slot="header" alignment="start" color="primary" size="xl">
+      <h1>Hi! there 👋</h1>
     </ProminentDisplayTitle>
     <PrimaryNavigationGridLayout slot="primaryNavigation">
       <ButtonLink href="/game" alt="All games">All games</ButtonLink>
       <ButtonLink href="/about" alt="About" variant="outline">About</ButtonLink>
     </PrimaryNavigationGridLayout>
 
-    <div class="prose prose-base">
+    <div class="prose prose-lg">
       <p>
         Welcome to spikze.club, a small progressive web app (PWA) that provides a collection of
         mini-games for playing darts with your guys and gals.
@@ -150,8 +150,7 @@
         Please note that this is not a 3D darts game, it's really just a glorified scorebore. You
         can install this web app, as offline support is implemented.
       </p>
-
-      <code lang="text">Still in developemt, not usable yet!</code>
+      <blockquote>Still in developemt, not fully usable yet!</blockquote>
     </div>
   </SectionLayout>
 </PageLayout>
