@@ -11,6 +11,9 @@
   export let state: "loading" = undefined;
   export let variant: "outline" | "bare" = undefined;
   export let nativeProps: svelte.JSX.HTMLAttributes<HTMLButtonElement> = undefined;
+
+  let cn: string = undefined;
+  export { cn as class };
 </script>
 
 <button
@@ -20,6 +23,7 @@
   {...nativeProps}
   class={clsx(
     `${buttonBaseMixin} ${buttonBaseAnimationMixin} inline-flex items-center justify-center gap-2`,
+    cn,
     {
       ["opacity-50 cursor-not-allowed"]: nativeProps?.disabled,
       ["animate-pulse"]: state === "loading",

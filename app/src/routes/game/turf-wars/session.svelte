@@ -21,7 +21,7 @@
 <PageLayout>
   {#if $state === "setup"}
     <TurfWarsGameSetup />
-  {:else if $state === "playing"}
+  {:else if $state === "playing" || $state === "done"}
     <TurfWarsGameSession />
   {/if}
 </PageLayout>

@@ -4,10 +4,13 @@
   export let color: "primary" | "muted" = undefined;
   export let alignment: "start" | "center" | "end" = "center";
   export let size: "lg" | "xl" = undefined;
+
+  let cn: string = undefined;
+  export { cn as class };
 </script>
 
 <span
-  class={clsx("font-bold", {
+  class={clsx("font-bold", cn, {
     ["text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl"]: !size || size === "xl",
     ["text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl"]: size === "lg",
     ["text-gray-50"]: !color,
