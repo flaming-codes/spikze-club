@@ -81,7 +81,7 @@
       <ButtonLink href="/game/around-the-clock/session" alt="Start a new game instance"
         >Start game</ButtonLink
       >
-      <ButtonLink href="/game/" alt="Show all games" isOutline>All games</ButtonLink>
+      <ButtonLink href="/game/" alt="Show all games" variant="outline">All games</ButtonLink>
     </PrimaryNavigationGridLayout>
 
     <DisplayProse>

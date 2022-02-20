@@ -13,7 +13,7 @@
   export let href: string;
   export let alt: string;
   export let targetVariant: "external" | "section" = undefined;
-  export let isOutline: boolean = undefined;
+  export let variant: "outline" | "bare" = undefined;
 </script>
 
 <a
@@ -24,8 +24,8 @@
   class={clsx(
     `${buttonBaseMixin} ${buttonLinkBaseAnimationMixin} inline-flex items-center justify-center gap-2`,
     {
-      [`${buttonBaseColorMixin}`]: !isOutline,
-      [`${buttonBaseOutlineMixin} ${buttonLinkOutlineBaseAnimationMixin}`]: isOutline
+      [`${buttonBaseColorMixin}`]: !variant,
+      [`${buttonBaseOutlineMixin} ${buttonLinkOutlineBaseAnimationMixin}`]: variant === "outline"
     }
   )}
 >

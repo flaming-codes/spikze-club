@@ -138,7 +138,7 @@
     </ProminentDisplayTitle>
     <PrimaryNavigationGridLayout slot="primaryNavigation">
       <ButtonLink href="/game" alt="All games">All games</ButtonLink>
-      <ButtonLink href="/about" alt="About" isOutline>About</ButtonLink>
+      <ButtonLink href="/about" alt="About" variant="outline">About</ButtonLink>
     </PrimaryNavigationGridLayout>
 
     <div class="prose prose-base">

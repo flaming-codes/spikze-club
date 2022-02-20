@@ -5,7 +5,7 @@
   // Using a link so that 'clsx' can eliminate
   // all other variant compared to an enum, which
   // should lead to a smaller size at runtime.
-  export let variant: "internal-link" | "external-link" | "section-link";
+  export let variant: "internal-link" | "external-link" | "section-link" | "close";
 
   let cn: string = undefined;
   export { cn as class };
@@ -25,6 +25,12 @@
 
 {#if variant === "section-link"}
   {#await import("carbon-icons-svelte/lib/ArrowDown20") then Icon}
+    <Icon.default class={cn} />
+  {/await}
+{/if}
+
+{#if variant === "close"}
+  {#await import("carbon-icons-svelte/lib/Close20") then Icon}
     <Icon.default class={cn} />
   {/await}
 {/if}

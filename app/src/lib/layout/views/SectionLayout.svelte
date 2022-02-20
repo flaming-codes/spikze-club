@@ -5,6 +5,7 @@
   export let sectionTitleSize: "lg" | "xl" = undefined;
   export let withHeaderSpacing: boolean = undefined;
   export let withSectionTitleSpacing: boolean = undefined;
+  export let withContentTopSpacing: boolean = undefined;
 </script>
 
 <!-- slot 'header'-->
@@ -22,7 +23,13 @@
         <slot name="primaryNavigation" />
       </div>
     {/if}
-    <slot />
+    <div
+      class={clsx({
+        "mt-8": withContentTopSpacing
+      })}
+    >
+      <slot />
+    </div>
   </div>
   {#if sectionTitle}
     <div

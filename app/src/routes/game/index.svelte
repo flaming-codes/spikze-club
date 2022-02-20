@@ -136,7 +136,11 @@
         </p>
       </div>
       <PrimaryNavigationGridLayout slot="primaryNavigation">
-        <ButtonLink isOutline href="/game/around-the-clock" alt="Link to around the clock game">
+        <ButtonLink
+          variant="outline"
+          href="/game/around-the-clock"
+          alt="Link to around the clock game"
+        >
           Show details
         </ButtonLink>
       </PrimaryNavigationGridLayout>
@@ -152,7 +156,7 @@
         </p>
       </div>
       <PrimaryNavigationGridLayout slot="primaryNavigation">
-        <ButtonLink isOutline href="/game/turf-wars" alt="Link to Turf Wars game">
+        <ButtonLink variant="outline" href="/game/turf-wars" alt="Link to Turf Wars game">
           Show details
         </ButtonLink>
       </PrimaryNavigationGridLayout>

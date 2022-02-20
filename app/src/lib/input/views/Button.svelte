@@ -8,24 +8,23 @@
     buttonBaseColorMixin
   } from "../mixins/button";
 
-  export let nativeButtonProps: any = {};
-  export let role = "button";
   export let state: "loading" = undefined;
-  export let isOutline: boolean = undefined;
+  export let variant: "outline" | "bare" = undefined;
+  export let nativeProps: svelte.JSX.HTMLAttributes<HTMLButtonElement> = undefined;
 </script>
 
 <button
-  {...nativeButtonProps}
-  on:click
+  on:click|preventDefault
   on:mouseenter
   on:mouseleave
-  {role}
+  {...nativeProps}
   class={clsx(
-    `${buttonBaseMixin} ${buttonBaseAnimationMixin} inline-flex items-center justify-center`,
+    `${buttonBaseMixin} ${buttonBaseAnimationMixin} inline-flex items-center justify-center gap-2`,
     {
+      ["opacity-50 cursor-not-allowed"]: nativeProps?.disabled,
       ["animate-pulse"]: state === "loading",
-      [`${buttonBaseColorMixin}`]: !isOutline,
-      [`${buttonBaseOutlineMixin} ${buttonOutlineBaseAnimationMixin}`]: isOutline
+      [`${buttonBaseColorMixin}`]: !variant,
+      [`${buttonBaseOutlineMixin} ${buttonOutlineBaseAnimationMixin}`]: variant === "outline"
     }
   )}
 >
@@ -33,5 +32,11 @@
     Loading
   {:else}
     <slot />
+  {/if}
+
+  {#if $$slots.icon}
+    <span>
+      <slot name="icon" />
+    </span>
   {/if}
 </button>
