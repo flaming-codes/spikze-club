@@ -23,13 +23,13 @@
   {...nativeProps}
   class={clsx(
     `${buttonBaseMixin} ${buttonBaseAnimationMixin} inline-flex items-center justify-center gap-2`,
-    cn,
     {
       ["opacity-50 cursor-not-allowed"]: nativeProps?.disabled,
       ["animate-pulse"]: state === "loading",
       [`${buttonBaseColorMixin}`]: !variant,
       [`${buttonBaseOutlineMixin} ${buttonOutlineBaseAnimationMixin}`]: variant === "outline"
-    }
+    },
+    cn
   )}
 >
   {#if state === "loading"}

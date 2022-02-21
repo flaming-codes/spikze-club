@@ -23,17 +23,15 @@
 </script>
 
 <form class="space-y-6" on:submit|preventDefault>
-  <div class="gap-8">
-    {#if !$players.length}
-      <p class="opacity-30">No players added yet</p>
+  <div class="gap-4 flex">
+    {#each $players as player, i (player)}
+      <Button variant="bare" on:click={() => removePlayer(i)}>
+        {player}
+        <CarbonIcon slot="icon" variant="close" />
+      </Button>
     {:else}
-      {#each $players as player, i (player)}
-        <Button variant="bare" on:click={() => removePlayer(i)}>
-          {player}
-          <CarbonIcon slot="icon" variant="close" />
-        </Button>
-      {/each}
-    {/if}
+      <p class="opacity-30">No players added yet</p>
+    {/each}
   </div>
 
   {#if nextPlayer !== undefined}

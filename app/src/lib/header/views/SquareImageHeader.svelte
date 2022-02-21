@@ -12,7 +12,7 @@
       ["sm:max-w-xs md:max-w-sm lg:max-w-lg xl:max-w-xl"]: !withMaxWidth
     })}
   >
-    <div class="aspect-w-1 aspect-h-1">
+    <div class="aspect-square">
       <img src={img.src} alt={img.alt} class="object-cover" />
     </div>
   </div>

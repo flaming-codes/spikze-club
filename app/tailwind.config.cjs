@@ -19,9 +19,5 @@ module.exports = {
       }
     }
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/aspect-ratio"),
-    require("tailwindcss-touch")()
-  ]
+  plugins: [require("@tailwindcss/typography"), require("tailwindcss-touch")()]
 };

@@ -1,4 +1,4 @@
-export const buttonBaseMixin = "py-2 px-7 text-sm text-center uppercase";
+export const buttonBaseMixin = "py-1 px-6 text-sm text-center uppercase";
 
 export const buttonBaseColorMixin = "text-gray-50 bg-primary hover:bg-gray-700";
 

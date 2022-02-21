@@ -23,7 +23,7 @@
 </script>
 
 <form class="space-y-6" on:submit|preventDefault>
-  <div class="gap-8">
+  <div class="gap-4 flex">
     {#each $fields as field, i (i)}
       <select class={clsx(buttonBaseMixin)} bind:value={field}>
         {#each boardNumbers as nr}

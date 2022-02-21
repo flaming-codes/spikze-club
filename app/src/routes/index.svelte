@@ -133,8 +133,8 @@
   </SectionLayout>
 
   <SectionLayout withHeaderSpacing>
-    <ProminentDisplayTitle slot="header" alignment="start" color="primary" size="xl">
-      <h1>Hi! there 👋</h1>
+    <ProminentDisplayTitle slot="header" alignment="start" color="primary" size="lg">
+      <h1>Hi there 👋</h1>
     </ProminentDisplayTitle>
     <PrimaryNavigationGridLayout slot="primaryNavigation">
       <ButtonLink href="/game" alt="All games">All games</ButtonLink>

@@ -5,7 +5,7 @@
 </script>
 
 <div>
-  <div class="aspect-h-1 aspect-w-3">
+  <div class="aspect-[3/1]">
     <img src={img.src} alt={img.alt} class="object-cover" />
   </div>
   <slot />

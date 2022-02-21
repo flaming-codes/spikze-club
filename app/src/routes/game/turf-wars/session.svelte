@@ -8,7 +8,7 @@
   import TurfWarsGameSetup from "$lib/game/setups/TurfWarsGameSetup.svelte";
   import TurfWarsGameSession from "$lib/game/sessions/TurfWarsGameSession.svelte";
 
-  const { players, fields, threshold, state } = store;
+  const { players, state } = store;
 
   onMount(async () => {
     if (!browser) return;
@@ -21,7 +21,8 @@
 <PageLayout>
   {#if $state === "setup"}
     <TurfWarsGameSetup />
-  {:else if $state === "playing" || $state === "done"}
+  {/if}
+  {#if $state === "playing" || $state === "done"}
     <TurfWarsGameSession />
   {/if}
 </PageLayout>

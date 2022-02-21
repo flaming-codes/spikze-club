@@ -7,15 +7,15 @@
 <!-- Why 'h-0' is required to re-calc height -->
 <!-- even on Safari: https://github.com/tailwindlabs/tailwindcss-aspect-ratio/issues/12 -->
 <div
-  class={clsx("h-0", {
-    ["aspect-w-2 aspect-h-1"]: variant === "2/1" || variant === "4/2",
-    ["aspect-w-1 aspect-h-1"]: variant === "1/1" || variant === "2/2",
-    ["aspect-w-4 aspect-h-1"]: variant === "4/1",
-    ["aspect-w-4 aspect-h-3"]: variant === "4/3"
+  class={clsx({
+    ["aspect-[2/1]"]: variant === "2/1" || variant === "4/2",
+    ["aspect-[1/1]"]: variant === "1/1" || variant === "2/2",
+    ["aspect-[4/1]"]: variant === "4/1",
+    ["aspect-[4/3]"]: variant === "4/3"
   })}
 >
   <div
-    class={clsx("grid", {
+    class={clsx("grid h-full w-full", {
       ["grid-cols-1 grid-rows-1"]: variant === "1/1",
       ["grid-cols-2 grid-rows-1"]: variant === "2/1",
       ["grid-cols-2 grid-rows-2"]: variant === "2/2",

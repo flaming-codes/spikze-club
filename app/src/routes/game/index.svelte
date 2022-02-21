@@ -118,34 +118,20 @@
       </p>
     </svelte:fragment>
     <PrimaryNavigationGridLayout slot="primaryNavigation">
-      <ButtonLink href={getAnchorRef({ id: "around-the-clock" })} alt="" targetVariant="section"
-        >Around the clock</ButtonLink
+      <ButtonLink
+        href={getAnchorRef({ id: "around-the-clock" })}
+        alt=""
+        variant="outline"
+        targetVariant="section">Around the clock</ButtonLink
       >
-      <ButtonLink href={getAnchorRef({ id: "turf-wars" })} alt="" targetVariant="section"
-        >Turf Wars</ButtonLink
+      <ButtonLink
+        href={getAnchorRef({ id: "turf-wars" })}
+        alt=""
+        variant="outline"
+        targetVariant="section">Turf Wars</ButtonLink
       >
     </PrimaryNavigationGridLayout>
   </SectionLayout>
-
-  <SectionAnchor id="around-the-clock">
-    <SectionLayout sectionTitle="Around the clock">
-      <div slot="header" class="prose prose-lg">
-        <p>
-          'A'round the clock' is game for 2 players that rewards endurance. Can take langer than
-          other games.
-        </p>
-      </div>
-      <PrimaryNavigationGridLayout slot="primaryNavigation">
-        <ButtonLink
-          variant="outline"
-          href="/game/around-the-clock"
-          alt="Link to around the clock game"
-        >
-          Show details
-        </ButtonLink>
-      </PrimaryNavigationGridLayout>
-    </SectionLayout>
-  </SectionAnchor>
 
   <SectionAnchor id="turf-wars">
     <SectionLayout sectionTitle="Turf Wars">
@@ -156,8 +142,37 @@
         </p>
       </div>
       <PrimaryNavigationGridLayout slot="primaryNavigation">
+        <ButtonLink href="/game/turf-wars/session" alt="Start a session of good 'ol Turf Wars">
+          Start session
+        </ButtonLink>
         <ButtonLink variant="outline" href="/game/turf-wars" alt="Link to Turf Wars game">
           Show details
+        </ButtonLink>
+      </PrimaryNavigationGridLayout>
+    </SectionLayout>
+  </SectionAnchor>
+
+  <SectionAnchor id="around-the-clock">
+    <SectionLayout sectionTitle="Around the clock">
+      <div slot="header" class="prose prose-lg">
+        <p>
+          'Around the clock' is a game for 2 players that rewards endurance and can take langer than
+          other games. Every player tries to catch the other one, starting from opposing numbers.
+        </p>
+      </div>
+      <PrimaryNavigationGridLayout slot="primaryNavigation">
+        <ButtonLink
+          href="/game/around-the-clock/session"
+          alt="Start a session of 'Around the clock'"
+        >
+          Start session
+        </ButtonLink>
+        <ButtonLink
+          variant="outline"
+          href="/game/around-the-clock"
+          alt="Link to around the clock game"
+        >
+          Learn more
         </ButtonLink>
       </PrimaryNavigationGridLayout>
     </SectionLayout>
