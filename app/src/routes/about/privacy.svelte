@@ -25,7 +25,7 @@
   <SectionLayout withContentTopSpacing sectionTitle="Privacy" sectionTitleSize="lg">
     <DisplayGrid slot="header" variant="2/1">
       <DisplayGridItem class="col-span-2">
-        <DisplayGridItemCarousel {directions} countItems={2}>
+        <DisplayGridItemCarousel {directions} countItems={3}>
           <img
             slot="0"
             src="/img/privacy/sepia-wave.webp"
@@ -37,6 +37,7 @@
             label="Privacy-first analytics"
             alignment="start"
           />
+          <DisplaySingluarCarouselTitle slot="2" label="Lightweigt & anonymous" alignment="start" />
         </DisplayGridItemCarousel>
       </DisplayGridItem>
     </DisplayGrid>
