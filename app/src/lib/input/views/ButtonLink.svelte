@@ -14,6 +14,11 @@
   export let alt: string;
   export let targetVariant: "external" | "section" = undefined;
   export let variant: "outline" | "bare" = undefined;
+
+  /*
+  rel={targetVariant === "external" && "external"}
+  target={targetVariant === "external" && "_blank"}
+  */
 </script>
 
 <a
@@ -21,6 +26,8 @@
   on:mouseleave
   {href}
   aria-label={alt}
+  rel={targetVariant === "external" ? "external" : undefined}
+  target={targetVariant === "external" ? "_blank" : undefined}
   class={clsx(
     `${buttonBaseMixin} ${buttonLinkBaseAnimationMixin} inline-flex items-center justify-center gap-2`,
     {

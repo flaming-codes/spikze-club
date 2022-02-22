@@ -11,9 +11,12 @@
 
 <script lang="ts">
   import ProminentDisplayTitle from "$lib/display/views/ProminentDisplayTitle.svelte";
+  import PageLayout from "$lib/layout/views/PageLayout.svelte";
   import SectionLayout from "$lib/layout/views/SectionLayout.svelte";
 </script>
 
-<SectionLayout withHeaderSpacing sectionTitle="Around the clock">
-  <ProminentDisplayTitle slot="header">Available soon!</ProminentDisplayTitle>
-</SectionLayout>
+<PageLayout>
+  <SectionLayout withHeaderSpacing sectionTitle="Around the clock">
+    <ProminentDisplayTitle color="primary" slot="header">Available soon!</ProminentDisplayTitle>
+  </SectionLayout>
+</PageLayout>
