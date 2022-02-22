@@ -11,8 +11,6 @@ const to_cache = build.concat(files);
 const staticAssets = new Set(to_cache);
 
 worker.addEventListener("install", (event) => {
-  console.log("--- to_cache", to_cache);
-
   event.waitUntil(
     caches
       .open(FILES)
@@ -89,9 +87,6 @@ worker.addEventListener("fetch", (event) => {
         // if your application has other URLs with data that will never change,
         // set this variable to true for them and they will only be fetched once.
         const cachedAsset = isStaticAsset && (await caches.match(event.request));
-
-        console.log("-- cachedAsset", cachedAsset);
-
         return cachedAsset || fetchAndCache(event.request);
       })()
     );

@@ -165,7 +165,6 @@
         Please note that this is not a 3D darts game, it's really just a glorified scorebore. You
         can install this web app, as offline support is implemented.
       </p>
-      <blockquote>Still in developemt, not fully usable yet!</blockquote>
     </div>
   </SectionLayout>
 </PageLayout>

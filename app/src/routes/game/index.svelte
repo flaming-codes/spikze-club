@@ -22,16 +22,17 @@
   import DisplayGridItemCarousel from "$lib/display/views/DisplayGridItemCarousel.svelte";
 
   const demoUrls = [
-    "https://images.pexels.com/photos/2291073/pexels-photo-2291073.jpeg?cs=srgb&dl=pexels-carlos-c%C3%A9sar-2291073.jpg&fm=jpg",
-    "https://images.pexels.com/photos/411990/pexels-photo-411990.jpeg?cs=srgb&dl=pexels-tomas-anunziata-411990.jpg&fm=jpg",
-    "https://images.pexels.com/photos/21300/pexels-photo.jpg?cs=srgb&dl=pexels-bob-clark-21300.jpg&fm=jpg",
-    "https://images.pexels.com/photos/1103969/pexels-photo-1103969.jpeg?cs=srgb&dl=pexels-johannes-plenio-1103969.jpg&fm=jpg",
-    "https://images.pexels.com/photos/2618118/pexels-photo-2618118.jpeg?cs=srgb&dl=pexels-kelly-l-2618118.jpg&fm=jpg",
-    "https://images.pexels.com/photos/3797/black-and-white-sport-fight-boxer.jpg?cs=srgb&dl=pexels-skitterphoto-3797.jpg&fm=jpg",
-    "https://images.pexels.com/photos/6370114/pexels-photo-6370114.jpeg?cs=srgb&dl=pexels-anna-tarazevich-6370114.jpg&fm=jpg",
-    "https://images.pexels.com/photos/391535/pexels-photo-391535.jpeg?cs=srgb&dl=pexels-tuur-tisseghem-391535.jpg&fm=jpg",
-    "https://images.pexels.com/photos/10183990/pexels-photo-10183990.jpeg?cs=srgb&dl=pexels-el-gringo-photo-10183990.jpg&fm=jpg",
-    "https://images.pexels.com/photos/2177813/pexels-photo-2177813.jpeg?cs=srgb&dl=pexels-dawn-lio-2177813.jpg&fm=jpg"
+    "/img/game/game-0.webp",
+    "/img/game/game-1.webp",
+    "/img/game/game-2.webp",
+    "/img/game/game-3.webp",
+    "/img/game/game-4.webp",
+    "/img/game/game-5.webp",
+    "/img/game/game-6.webp",
+    "/img/game/game-7.webp",
+    "/img/game/game-8.webp",
+    "/img/game/game-9.webp",
+    "/img/game/game-10.webp"
   ];
 </script>
 
@@ -98,7 +99,7 @@
           <DisplayGridItem color="dark">
             <DisplayGridItemCarousel countItems={2} withRandomSeedInitialDelay={-200}>
               <FeatureGridItemSimpleTupleDisplay slot="0" size="md" value="Install locally" />
-              <FeatureGridItemSimpleTupleDisplay slot="1" size="md" value="Restore sessions" />
+              <FeatureGridItemSimpleTupleDisplay slot="1" size="md" value="Enjoy Darts" />
             </DisplayGridItemCarousel>
           </DisplayGridItem>
         </div>
