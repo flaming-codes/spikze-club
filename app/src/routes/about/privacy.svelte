@@ -57,15 +57,16 @@
         telemetric data provider is implemented, which is Cloudflare Web Analytics.
       </p>
       <p>
-        Because no data that can identify you, there is no requirement to show a conset view -
-        simply because no relevant data is collected.
+        Because no data that can identify you is collected, there is no requirement to show a conset
+        view or selection. Furthermore, no other analytics or ad-script is used.
       </p>
-      <p>What is collected is just a small collection of core metrics:</p>
+      <p>What is collected is just a small set of core metrics:</p>
       <ul>
         <li>Browser</li>
         <li>Country</li>
         <li>Time spent on site</li>
       </ul>
+      <p>These simple data points help maintaining the PWA.</p>
     </div>
   </SectionLayout>
 </PageLayout>

@@ -13,7 +13,7 @@
     })}
   >
     <div class="aspect-square">
-      <img src={img.src} alt={img.alt} class="object-cover" />
+      <img src={img.src} alt={img.alt} class="object-cover h-full w-full" />
     </div>
   </div>
   <div class="flex-1">
