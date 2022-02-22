@@ -21,6 +21,8 @@
   on:mouseleave
   {href}
   aria-label={alt}
+  rel={targetVariant === "external" && "external"}
+  target={targetVariant === "external" && "_blank"}
   class={clsx(
     `${buttonBaseMixin} ${buttonLinkBaseAnimationMixin} inline-flex items-center justify-center gap-2`,
     {
