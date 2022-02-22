@@ -55,17 +55,32 @@
     <DisplayGrid slot="header" variant="4/3">
       <DisplayGridItem color="bright" class="col-span-2 row-span-2">
         <DisplayGridItemCarousel {directions} countItems={3}>
-          <DisplaySingluarCarouselTitle slot="0" label="spikze.club" />
-          <DisplaySingluarCarouselTitle slot="1" label="darts arcade" />
-          <DisplaySingluarCarouselTitle slot="2" label="scoreboard" />
+          <DisplaySingluarCarouselTitle slot="0" label="spikze.club" widthVariant="double" />
+          <DisplaySingluarCarouselTitle slot="1" label="darts arcade" widthVariant="double" />
+          <DisplaySingluarCarouselTitle slot="2" label="scoreboard" widthVariant="double" />
         </DisplayGridItemCarousel>
       </DisplayGridItem>
 
       <DisplayGridItem color="muted" class="col-span-2 row-span-2">
         <DisplayGridItemCarousel {directions} countItems={3} withInitialDelay={150}>
-          <DisplaySingluarCarouselTitle slot="0" label="spikze.club" alignment="end" />
-          <DisplaySingluarCarouselTitle slot="1" label="darts arcade" alignment="end" />
-          <DisplaySingluarCarouselTitle slot="2" label="scoreboard" alignment="end" />
+          <DisplaySingluarCarouselTitle
+            slot="0"
+            label="spikze.club"
+            alignment="end"
+            widthVariant="double"
+          />
+          <DisplaySingluarCarouselTitle
+            slot="1"
+            label="darts arcade"
+            alignment="end"
+            widthVariant="double"
+          />
+          <DisplaySingluarCarouselTitle
+            slot="2"
+            label="scoreboard"
+            alignment="end"
+            widthVariant="double"
+          />
         </DisplayGridItemCarousel>
       </DisplayGridItem>
 

@@ -1,4 +1,6 @@
 <script>
+  import ImprintFooter from "$lib/footer/views/ImprintFooter.svelte";
+  import PageLayout from "$lib/layout/views/PageLayout.svelte";
   import "../app.css";
 </script>
 
@@ -16,3 +18,7 @@
 <!-- icons: https://icon-sets.iconify.design/carbon/-->
 
 <slot />
+
+<PageLayout class="mt-36">
+  <ImprintFooter />
+</PageLayout>

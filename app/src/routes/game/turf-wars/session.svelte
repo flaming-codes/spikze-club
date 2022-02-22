@@ -1,20 +1,28 @@
+<script lang="ts" context="module">
+  import type { Load } from "@sveltejs/kit";
+
+  export const prerender = true;
+
+  export const fetch: Load = async () => ({
+    status: 200,
+    maxage: 60 * 60 * 24
+  });
+</script>
+
 <script lang="ts">
   // Stores first.
   import { turfWarsStore as store } from "$lib/game/stores/turf-wars";
 
-  import { browser } from "$app/env";
   import PageLayout from "$lib/layout/views/PageLayout.svelte";
-  import { onMount, tick } from "svelte";
+  import { onMount } from "svelte";
   import TurfWarsGameSetup from "$lib/game/setups/TurfWarsGameSetup.svelte";
   import TurfWarsGameSession from "$lib/game/sessions/TurfWarsGameSession.svelte";
+  import { restoreItems } from "$lib/game/models/restore";
 
   const { players, state } = store;
 
   onMount(async () => {
-    if (!browser) return;
-    // Restore common values.
-    await tick();
-    players.set(JSON.parse(localStorage.getItem("players-turf-wars") || "[]"));
+    await restoreItems<string>({ key: "players-turf-wars", resolver: players.set });
   });
 </script>
 

@@ -3,10 +3,13 @@
 
   export let label: string = undefined;
   export let alignment: "start" | "end" = undefined;
+  export let widthVariant: "double" = undefined;
 </script>
 
 <div
-  class={clsx("h-full left-0 flex justify-center items-center w-[200%]", {
+  class={clsx("h-full left-0 flex justify-center items-center", {
+    ["w-full"]: !widthVariant,
+    ["w-[200%]"]: widthVariant === "double",
     "-translate-x-1/2": alignment === "end"
   })}
 >

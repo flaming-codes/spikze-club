@@ -1,11 +1,15 @@
 <script lang="ts">
   import { Transition } from "@rgossiaux/svelte-headlessui";
+  import clsx from "clsx";
   import { directions as _directions, type CarouselDirection } from "../models/space";
 
   export let withInitialDelay: number = undefined;
   export let withRandomSeedInitialDelay: number = undefined;
   export let countItems: number;
   export let directions: CarouselDirection[] = _directions;
+
+  let cn: string = undefined;
+  export { cn as class };
 
   let index = 0;
   let isVisible = true;
@@ -47,7 +51,7 @@
   };
 </script>
 
-<div class="h-full w-full">
+<div class={clsx("h-full w-full", cn)}>
   <div class="relative h-full w-full overflow-hidden">
     <Transition
       show={isVisible}

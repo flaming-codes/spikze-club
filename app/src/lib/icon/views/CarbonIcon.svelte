@@ -11,13 +11,13 @@
   export { cn as class };
 </script>
 
-{#if variant === "internal-link"}
+{#if variant === "external-link"}
   {#await import("carbon-icons-svelte/lib/ArrowUpRight20") then Icon}
     <Icon.default class={cn} />
   {/await}
 {/if}
 
-{#if variant === "external-link"}
+{#if variant === "internal-link"}
   {#await import("carbon-icons-svelte/lib/ArrowRight20") then Icon}
     <Icon.default class={cn} />
   {/await}
