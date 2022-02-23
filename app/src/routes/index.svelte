@@ -22,6 +22,8 @@
   import DisplayGridItemLink from "$lib/display/views/DisplayGridItemLink.svelte";
   import type { Load } from "@sveltejs/kit";
   import Button from "$lib/input/views/Button.svelte";
+  import { browser } from "$app/env";
+  import { onDestroy } from "svelte";
 
   const directions: CarouselDirection[] = [
     {
@@ -62,9 +64,17 @@
     defferedEvent.prompt();
     isInstallPossible = false;
   };
-</script>
 
-<svlete:window on:beforeinstallprompt={onBeforeInstallPrompt} />
+  if (browser) {
+    window.addEventListener("beforeinstallprompt", onBeforeInstallPrompt);
+  }
+
+  onDestroy(() => {
+    if (browser) {
+      window.removeEventListener("beforeinstallprompt", onBeforeInstallPrompt);
+    }
+  });
+</script>
 
 <PageLayout>
   <SectionLayout>
