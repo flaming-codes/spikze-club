@@ -3,7 +3,8 @@
     { href: "/", label: "Start" },
     { href: "/game", label: "Games" },
     { href: "/about", label: "About" },
-    { href: "/about/privacy", label: "Privacy" }
+    { href: "/about/privacy", label: "Privacy" },
+    { href: "/about/imprint", label: "Imprint" }
   ];
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-  import ImprintFooter from "$lib/footer/views/ImprintFooter.svelte";
+  import FooterSitemap from "$lib/footer/views/FooterSitemap.svelte";
   import PageLayout from "$lib/layout/views/PageLayout.svelte";
   import "../app.css";
 </script>
@@ -20,5 +20,5 @@
 <slot />
 
 <PageLayout class="mt-36">
-  <ImprintFooter />
+  <FooterSitemap />
 </PageLayout>

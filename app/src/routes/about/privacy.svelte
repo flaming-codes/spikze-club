@@ -17,7 +17,7 @@
   import DisplayGrid from "$lib/display/views/DisplayGrid.svelte";
   import DisplayGridItemCarousel from "$lib/display/views/DisplayGridItemCarousel.svelte";
   import { directions } from "$lib/display/models/space";
-  import DisplaySingluarCarouselTitle from "$lib/display/views/DisplaySingluarCarouselTitle.svelte";
+  import DisplaySingularCarouselTitle from "$lib/display/views/DisplaySingularCarouselTitle.svelte";
   import DisplayGridItem from "$lib/display/views/DisplayGridItem.svelte";
 </script>
 
@@ -32,12 +32,12 @@
             alt="Moody view on a balcon at night from a living room"
             class="object-cover w-full h-full"
           />
-          <DisplaySingluarCarouselTitle
+          <DisplaySingularCarouselTitle
             slot="1"
             label="Privacy-first analytics"
             alignment="start"
           />
-          <DisplaySingluarCarouselTitle slot="2" label="Lightweigt & anonymous" alignment="start" />
+          <DisplaySingularCarouselTitle slot="2" label="Lightweigt & anonymous" alignment="start" />
         </DisplayGridItemCarousel>
       </DisplayGridItem>
     </DisplayGrid>

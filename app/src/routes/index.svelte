@@ -16,7 +16,7 @@
   import DisplayGridItemCarousel from "$lib/display/views/DisplayGridItemCarousel.svelte";
   import FeatureGridItemSimpleTupleDisplay from "$lib/display/views/FeatureGridItemSimpleTupleDisplay.svelte";
   import type { CarouselDirection } from "$lib/display/models/space";
-  import DisplaySingluarCarouselTitle from "$lib/display/views/DisplaySingluarCarouselTitle.svelte";
+  import DisplaySingularCarouselTitle from "$lib/display/views/DisplaySingularCarouselTitle.svelte";
   import SectionLayout from "$lib/layout/views/SectionLayout.svelte";
   import PrimaryNavigationGridLayout from "$lib/layout/views/PrimaryNavigationGridLayout.svelte";
   import DisplayGridItemLink from "$lib/display/views/DisplayGridItemLink.svelte";
@@ -55,27 +55,27 @@
     <DisplayGrid slot="header" variant="4/3">
       <DisplayGridItem color="bright" class="col-span-2 row-span-2">
         <DisplayGridItemCarousel {directions} countItems={3}>
-          <DisplaySingluarCarouselTitle slot="0" label="spikze.club" widthVariant="double" />
-          <DisplaySingluarCarouselTitle slot="1" label="darts arcade" widthVariant="double" />
-          <DisplaySingluarCarouselTitle slot="2" label="scoreboard" widthVariant="double" />
+          <DisplaySingularCarouselTitle slot="0" label="spikze.club" widthVariant="double" />
+          <DisplaySingularCarouselTitle slot="1" label="darts arcade" widthVariant="double" />
+          <DisplaySingularCarouselTitle slot="2" label="scoreboard" widthVariant="double" />
         </DisplayGridItemCarousel>
       </DisplayGridItem>
 
       <DisplayGridItem color="muted" class="col-span-2 row-span-2">
         <DisplayGridItemCarousel {directions} countItems={3} withInitialDelay={150}>
-          <DisplaySingluarCarouselTitle
+          <DisplaySingularCarouselTitle
             slot="0"
             label="spikze.club"
             alignment="end"
             widthVariant="double"
           />
-          <DisplaySingluarCarouselTitle
+          <DisplaySingularCarouselTitle
             slot="1"
             label="darts arcade"
             alignment="end"
             widthVariant="double"
           />
-          <DisplaySingluarCarouselTitle
+          <DisplaySingularCarouselTitle
             slot="2"
             label="scoreboard"
             alignment="end"
@@ -149,7 +149,7 @@
 
   <SectionLayout withHeaderSpacing>
     <ProminentDisplayTitle slot="header" alignment="start" color="primary" size="lg">
-      <h1>Hi there 👋</h1>
+      <h1>Hi there!</h1>
     </ProminentDisplayTitle>
     <PrimaryNavigationGridLayout slot="primaryNavigation">
       <ButtonLink href="/game" alt="All games">All games</ButtonLink>

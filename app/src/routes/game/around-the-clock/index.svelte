@@ -22,7 +22,12 @@
 </script>
 
 <PageLayout>
-  <SectionLayout withSectionTitleSpacing sectionTitle="Around the clock" sectionTitleSize="xl">
+  <SectionLayout
+    withSectionTitleSpacing
+    withCarouselTitleOnSmall
+    sectionTitle="Around the clock"
+    sectionTitleSize="xl"
+  >
     <DisplayGrid slot="header" variant="4/2">
       <div class="col-span-2 row-span-2">
         <DisplayGridItem color="midnight">

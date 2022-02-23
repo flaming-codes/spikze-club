@@ -8,7 +8,9 @@
 
 <!-- Use 'span' for slot -->
 <!-- https://stackoverflow.com/questions/67852559/pass-svelte-component-as-props -->
-<div class="h-full w-full flex flex-col justify-center items-center space-y-3 text-center p-2">
+<div
+  class="h-full w-full flex flex-col justify-center items-center space-y-1 sm:space-y-2 lg:space-y-3 text-center p-2"
+>
   <span
     class={clsx({
       hidden: !$$slots.value && !value,
