@@ -21,6 +21,7 @@
   import PrimaryNavigationGridLayout from "$lib/layout/views/PrimaryNavigationGridLayout.svelte";
   import DisplayGridItemLink from "$lib/display/views/DisplayGridItemLink.svelte";
   import type { Load } from "@sveltejs/kit";
+  import Button from "$lib/input/views/Button.svelte";
 
   const directions: CarouselDirection[] = [
     {
@@ -48,7 +49,22 @@
       leaveTo: "translate-y-full"
     }
   ];
+
+  let defferedEvent: any = undefined;
+  let isInstallPossible: boolean = false;
+
+  const onBeforeInstallPrompt = (e: Event) => {
+    defferedEvent = e;
+    isInstallPossible = true;
+  };
+
+  const onInstall = () => {
+    defferedEvent.prompt();
+    isInstallPossible = false;
+  };
 </script>
+
+<svlete:window on:beforeinstallprompt={onBeforeInstallPrompt} />
 
 <PageLayout>
   <SectionLayout>
@@ -165,6 +181,24 @@
         Please note that this is not a 3D darts game, it's really just a glorified scorebore. You
         can install this web app, as offline support is implemented.
       </p>
+
+      <h3>Offline usage & installation</h3>
+      <p>
+        Because this is a PWA (Progressive Web App), you can actually completely use it offline.
+        Don't believe it? Simply switch off your web connection and navigate to any page.
+      </p>
+      <p>
+        Offline usage can be particular helpful if you want to use the scoreboards in an
+        environement where a connection is not really possible, e.g. when playing darts in your
+        cellar.
+      </p>
+      <p>
+        On supported browsers, you can also install the PWA and run it like a native app. To do so,
+        please check the right-hand icons in your browser's input bar.
+      </p>
+      {#if isInstallPossible}
+        <Button on:click={onInstall}>Show install prompt</Button>
+      {/if}
     </div>
   </SectionLayout>
 </PageLayout>

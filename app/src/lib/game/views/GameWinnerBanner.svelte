@@ -8,7 +8,7 @@
   export let onResetup: () => void = undefined;
 </script>
 
-<div class="mb-10 space-y-4" in:fly={{ y: -50 }}>
+<div class="mb-10 space-y-4" in:fly={{ y: -50 }} out:fly={{ y: -50 }}>
   <p class="text-4xl font-bold mt-2">{name} has won!</p>
   <div class="space-x-2">
     <Button on:click={onRestart}>Start again</Button>
