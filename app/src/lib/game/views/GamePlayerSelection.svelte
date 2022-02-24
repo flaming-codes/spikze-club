@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { turfWarsStore as store } from "../stores/turf-wars";
+  import type { BaseGameStoreWritable } from "../stores/base";
   import CarbonIcon from "$lib/icon/views/CarbonIcon.svelte";
   import Button from "$lib/input/views/Button.svelte";
 
-  const { players } = store;
+  export let players: BaseGameStoreWritable["players"];
   export let countMaxPlayers = 2;
 
   let nextPlayer: string = undefined;
@@ -30,7 +30,7 @@
         <CarbonIcon slot="icon" variant="close" />
       </Button>
     {:else}
-      <p class="opacity-30">No players added yet</p>
+      <p class="hidden opacity-30">No players added yet</p>
     {/each}
   </div>
 

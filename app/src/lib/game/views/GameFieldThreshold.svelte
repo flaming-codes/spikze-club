@@ -1,9 +1,12 @@
 <script lang="ts">
-  import { turfWarsStore as store } from "../stores/turf-wars";
+  import type { BaseGameStoreWritable } from "../stores/base";
   import { onMount } from "svelte";
-  import { fly, fade } from "svelte/transition";
+  import { fly } from "svelte/transition";
 
-  const { threshold } = store;
+  export let threshold: BaseGameStoreWritable["threshold"];
+  export let min: number = 3;
+  export let max: number = 10;
+
   let initalThreshold: number;
 
   $: if (!threshold) {
@@ -21,15 +24,9 @@
   });
 </script>
 
-<label class="inline-flex items-center">
+<label class="inline-flex items-center space-x-6">
   {#key $threshold}
-    <input
-      type="number"
-      bind:value={$threshold}
-      min="3"
-      max="10"
-      in:fly={{ y: animationModifier(10) }}
-    />
+    <span in:fly={{ y: animationModifier(10) }} class="min-w-[16px]">{$threshold}</span>
   {/key}
-  <input type="range" bind:value={$threshold} min="3" max="10" />
+  <input type="range" bind:value={$threshold} {min} {max} />
 </label>

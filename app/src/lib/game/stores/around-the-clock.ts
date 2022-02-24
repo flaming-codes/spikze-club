@@ -1,18 +1,16 @@
 import { writable } from "svelte/store";
-import { getBaseGameStoreWritables, type BaseGameStore } from "./base";
+import { getBaseGameStoreWritables, type BaseGameStore, type GameStore } from "./base";
 
 // 'threshold' is the number of hits required
 // to move between fields, '1' by default.
-type Store = BaseGameStore & {
-  playerFieldMap: Record<string, number>;
-};
+type Store = BaseGameStore & Pick<GameStore, "playerFieldMap">;
 
 const writables = {
-  ...getBaseGameStoreWritables(),
+  ...getBaseGameStoreWritables({ threshold: 1 }),
   playerFieldMap: writable<Store["playerFieldMap"]>({})
 };
 
-export const turfWarsStore = {
+export const aroundTheClockStores = {
   ...writables,
   reset: () => {
     writables.state.set("setup");
