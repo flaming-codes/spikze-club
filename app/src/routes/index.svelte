@@ -21,9 +21,7 @@
   import PrimaryNavigationGridLayout from "$lib/layout/views/PrimaryNavigationGridLayout.svelte";
   import DisplayGridItemLink from "$lib/display/views/DisplayGridItemLink.svelte";
   import type { Load } from "@sveltejs/kit";
-  import Button from "$lib/input/views/Button.svelte";
-  import { browser } from "$app/env";
-  import { onDestroy } from "svelte";
+  import PwaInstallPromptButton from "$lib/input/views/PWAInstallPromptButton.svelte";
 
   const directions: CarouselDirection[] = [
     {
@@ -51,29 +49,6 @@
       leaveTo: "translate-y-full"
     }
   ];
-
-  let defferedEvent: any = undefined;
-  let isInstallPossible: boolean = false;
-
-  const onBeforeInstallPrompt = (e: Event) => {
-    defferedEvent = e;
-    isInstallPossible = true;
-  };
-
-  const onInstall = () => {
-    defferedEvent.prompt();
-    isInstallPossible = false;
-  };
-
-  if (browser) {
-    window.addEventListener("beforeinstallprompt", onBeforeInstallPrompt);
-  }
-
-  onDestroy(() => {
-    if (browser) {
-      window.removeEventListener("beforeinstallprompt", onBeforeInstallPrompt);
-    }
-  });
 </script>
 
 <PageLayout>
@@ -206,9 +181,7 @@
         On supported browsers, you can also install the PWA and run it like a native app. To do so,
         please check the right-hand icons in your browser's input bar.
       </p>
-      {#if isInstallPossible}
-        <Button on:click={onInstall}>Show install prompt</Button>
-      {/if}
+      <PwaInstallPromptButton />
     </div>
   </SectionLayout>
 </PageLayout>
