@@ -7,6 +7,21 @@
   export let playerFieldMap: GameStoreWritable["playerFieldMap"];
 
   $: fields = Object.values($playerFieldMap);
+
+  $: if (fields.some((nr) => nr === undefined)) {
+    const keys = Object.keys($playerFieldMap);
+
+    const i = fields.findIndex((nr) => nr === undefined);
+    const numbers = boardNumbersAsc.filter((nr) => !fields.includes(nr));
+    const randomIndex = Math.floor(Math.random() * numbers.length);
+
+    console.log("- ri", randomIndex, "i", i, "nrs", numbers);
+
+    playerFieldMap.update((prev) => ({
+      ...prev,
+      [keys[i]]: numbers[randomIndex]
+    }));
+  }
 </script>
 
 <div class="flex gap-4">

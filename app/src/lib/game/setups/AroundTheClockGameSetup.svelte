@@ -44,8 +44,6 @@
       return prev;
     });
   }
-
-  $: console.log("$map", $playerFieldMap);
 </script>
 
 <SectionLayout withHeaderSpacing>
