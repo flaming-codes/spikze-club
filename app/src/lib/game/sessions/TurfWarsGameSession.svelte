@@ -13,13 +13,10 @@
   const playerColors = ["bg-indigo-400", "bg-amber-400"];
 
   let scores: Array<{ value: number; pointsByPlayers: number[]; leadPlayerIndex?: number }> = [];
-  let seconds = 0;
-  // Assigned in 'onMount', else 'seconds'
-  // get reset to 0 as well.
-  let interval: NodeJS.Timer;
+  let timer: any;
 
   $: if ($winnerIndex >= 0) {
-    clearInterval(interval);
+    timer.stop();
     state.set("done");
   }
 
@@ -54,27 +51,25 @@
   const reset = (flags?: { withState?: boolean }) => () => {
     winnerIndex.set(undefined);
     scores = composeEmptyScores();
-    seconds = 0;
-    clearInterval(interval);
-    interval = setInterval(() => (seconds += 1), 1_000);
+    timer.reset();
 
     if (flags?.withState) $state = "setup";
   };
 
   onMount(() => {
     scores = composeEmptyScores();
-    interval = setInterval(() => (seconds += 1), 1_000);
+    timer.start();
   });
 
   onDestroy(() => {
-    clearInterval(interval);
+    timer.stop();
     store.reset();
   });
 </script>
 
 <SectionLayout withHeaderSpacing withContentTopSpacing sectionTitle="Turf Wars">
   <div slot="header">
-    <GameTimerView {seconds} hasWinner={$winnerIndex >= 0} />
+    <GameTimerView bind:this={timer} />
   </div>
   <div class="mb-10">
     {#if $winnerIndex >= 0}

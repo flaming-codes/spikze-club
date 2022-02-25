@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { GameStoreWritable } from "$lib/game/stores/base";
   import clsx from "clsx";
-  import { boardNumbers } from "../constants/board";
+  import { boardNumbersAsc } from "../constants/board";
   import { buttonBaseMixin } from "$lib/input/mixins/button";
 
   export let playerFieldMap: GameStoreWritable["playerFieldMap"];
@@ -20,7 +20,7 @@
           playerFieldMap.update((prev) => ({ ...prev, [name]: Number(ev.currentTarget.value) }));
         }}
       >
-        {#each boardNumbers as nr}
+        {#each boardNumbersAsc as nr}
           <option value={nr} disabled={fields.includes(nr)}>
             {nr}
           </option>

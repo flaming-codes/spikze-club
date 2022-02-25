@@ -4,7 +4,7 @@
   import Button from "$lib/input/views/Button.svelte";
   import clsx from "clsx";
   import { onMount } from "svelte";
-  import { boardNumbers } from "../constants/board";
+  import { boardNumbersAsc } from "../constants/board";
 
   let { fields } = store;
   export let withSubmit: boolean = undefined;
@@ -26,7 +26,7 @@
   <div class="gap-4 flex">
     {#each $fields as field, i (i)}
       <select class={clsx(buttonBaseMixin)} bind:value={field}>
-        {#each boardNumbers as nr}
+        {#each boardNumbersAsc as nr}
           <option value={nr} disabled={$fields.includes(nr)}>
             {nr}
           </option>
@@ -41,7 +41,7 @@
       variant="outline"
       nativeProps={{ disabled: $fields.length === 20 }}
       on:click={() => {
-        fields.update((prev) => [...prev, boardNumbers.filter((nr) => !prev.includes(nr))[0]]);
+        fields.update((prev) => [...prev, boardNumbersAsc.filter((nr) => !prev.includes(nr))[0]]);
       }}>Add number</Button
     >
     <Button

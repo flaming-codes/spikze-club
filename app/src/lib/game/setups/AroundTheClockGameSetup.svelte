@@ -22,7 +22,7 @@
   $: if (browser && $players && $players.length) {
     const save = async () => {
       await tick();
-      localStorage.setItem("players-turf-wars", JSON.stringify($players));
+      localStorage.setItem("players-around-the-clock", JSON.stringify($players));
     };
 
     save();

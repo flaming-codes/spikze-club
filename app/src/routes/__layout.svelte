@@ -19,6 +19,6 @@
 
 <slot />
 
-<PageLayout class="mt-36">
+<PageLayout class="mt-36 mx-4">
   <FooterSitemap />
 </PageLayout>

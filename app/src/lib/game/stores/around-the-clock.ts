@@ -7,6 +7,8 @@ type Store = BaseGameStore & Pick<GameStore, "playerFieldMap">;
 
 const writables = {
   ...getBaseGameStoreWritables({ threshold: 1 }),
+  state: writable<string>("setup"),
+  players: writable<BaseGameStore["players"]>([]),
   playerFieldMap: writable<Store["playerFieldMap"]>({})
 };
 
