@@ -40,13 +40,15 @@ worker.addEventListener("activate", (event) => {
 });
 
 function generateSitemapFromBuild(build: string[]) {
-  return build
+  const paths = build
     .filter((path) => path.startsWith("/_app/pages/"))
     .map((p) => p.replace("/_app/pages", ""))
     .map((p) => p.substring(0, p.lastIndexOf(".")))
     .map((p) => p.substring(0, p.lastIndexOf(".")))
     .map((p) => p.replace("/index", ""))
     .filter((p) => p !== "/__layout");
+
+  return ["", ...paths];
 }
 
 /**
