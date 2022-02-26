@@ -18,7 +18,7 @@
 
   $: if (isVisible) {
     const getDelay = () => {
-      const ms = 4_000;
+      const ms = 3_000;
 
       if (index === 0) {
         if (withRandomSeedInitialDelay) {

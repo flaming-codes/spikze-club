@@ -7,6 +7,7 @@
   import GamePlayersRow from "../views/GamePlayersRow.svelte";
   import GameTimerView from "../views/GameTimerView.svelte";
   import GameWinnerBanner from "../views/GameWinnerBanner.svelte";
+  import clsx from "clsx";
 
   const { players, fields, threshold, winnerIndex, state } = store;
 
@@ -82,7 +83,12 @@
 <SectionLayout sectionTitle="Scoreboard">
   <div class="grid grid-cols-2 lg:grid-cols-3 gap-8">
     {#each scores as { value, pointsByPlayers, leadPlayerIndex }, scoreIndex}
-      <li class="h-32 rounded flex items-stretch bg-slate-100 relative">
+      <li
+        class={clsx("h-32 rounded flex items-stretch relative", {
+          [["bg-indigo-100", "bg-amber-100"][leadPlayerIndex]]: leadPlayerIndex >= 0,
+          "bg-slate-100": leadPlayerIndex === undefined
+        })}
+      >
         <GameNumberCounter
           {value}
           threshold={$threshold}

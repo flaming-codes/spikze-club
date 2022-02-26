@@ -19,7 +19,9 @@
 </script>
 
 <div
-  class="absolute inset-0 flex flex-col justify-center items-center text-2xl pointer-events-none"
+  class={clsx(
+    "absolute inset-0 flex flex-col justify-center items-center text-4xl font-bold pointer-events-none"
+  )}
 >
   {#key leaderIndex}
     {#if hasLeader}
