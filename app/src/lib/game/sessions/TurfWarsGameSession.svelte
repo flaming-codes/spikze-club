@@ -8,7 +8,7 @@
   import GameTimerView from "../views/GameTimerView.svelte";
   import GameWinnerBanner from "../views/GameWinnerBanner.svelte";
   import clsx from "clsx";
-  import ScreenWakeLock from "$lib/screen/views/ScreenWakeLock.svelte";
+  import { ScreenWakeLock } from "svelte-screen-wake-lock";
 
   const { players, fields, threshold, winnerIndex, state } = store;
 
@@ -69,7 +69,10 @@
   });
 </script>
 
-<ScreenWakeLock withLockOnMount withUnlockOnMount />
+<ScreenWakeLock
+  on:change={(event) => console.log("released", event.detail)}
+  on:error={(event) => console.log("err", event.detail)}
+/>
 
 <SectionLayout withHeaderSpacing withContentTopSpacing sectionTitle="Turf Wars">
   <div slot="header">
