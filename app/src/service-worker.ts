@@ -48,7 +48,7 @@ function generateSitemapFromBuild(build: string[]) {
     .map((p) => p.replace("/index", ""))
     .filter((p) => p !== "/__layout");
 
-  return ["", ...paths];
+  return paths;
 }
 
 /**

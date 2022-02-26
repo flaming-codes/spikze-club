@@ -18,6 +18,7 @@
   import PageLayout from "$lib/layout/views/PageLayout.svelte";
   import PrimaryNavigationGridLayout from "$lib/layout/views/PrimaryNavigationGridLayout.svelte";
   import SectionLayout from "$lib/layout/views/SectionLayout.svelte";
+  import { Route } from "$lib/nav/models/routes";
   import type { Load } from "@sveltejs/kit";
 </script>
 
@@ -83,10 +84,8 @@
     </DisplayGrid>
 
     <PrimaryNavigationGridLayout slot="primaryNavigation">
-      <ButtonLink href="/game/around-the-clock/session" alt="Start a new game instance"
-        >Start game</ButtonLink
-      >
-      <ButtonLink href="/game" alt="Show all games" variant="outline">All games</ButtonLink>
+      <ButtonLink href={Route.AtcSession} alt="Start a new game instance">Start game</ButtonLink>
+      <ButtonLink href={Route.Game} alt="Show all games" variant="outline">All games</ButtonLink>
     </PrimaryNavigationGridLayout>
 
     <DisplayProse>

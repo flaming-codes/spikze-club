@@ -15,8 +15,6 @@
     const numbers = boardNumbersAsc.filter((nr) => !fields.includes(nr));
     const randomIndex = Math.floor(Math.random() * numbers.length);
 
-    console.log("- ri", randomIndex, "i", i, "nrs", numbers);
-
     playerFieldMap.update((prev) => ({
       ...prev,
       [keys[i]]: numbers[randomIndex]

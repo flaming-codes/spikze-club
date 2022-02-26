@@ -1,3 +1,14 @@
+<script lang="ts" context="module">
+  import type { Load } from "@sveltejs/kit";
+
+  export const prerender = true;
+
+  export const fetch: Load = async () => ({
+    status: 200,
+    maxage: 60 * 60 * 24
+  });
+</script>
+
 <script lang="ts">
   import SquareImageHeader from "$lib/header/views/SquareImageHeader.svelte";
   import ButtonLink from "$lib/input/views/ButtonLink.svelte";
@@ -32,12 +43,12 @@
     </SquareImageHeader>
 
     <PrimaryNavigationGridLayout slot="primaryNavigation">
-      <ButtonLink href={getAnchorRef({ id: "section-a" })} alt="">Me, Myself & I</ButtonLink>
-      <ButtonLink href={getAnchorRef({ id: "section-b" })} alt="">More</ButtonLink>
+      <ButtonLink href={getAnchorRef({ id: "me" })} alt="">Me, Myself & I</ButtonLink>
+      <ButtonLink href={getAnchorRef({ id: "more" })} alt="">More</ButtonLink>
     </PrimaryNavigationGridLayout>
   </SectionLayout>
 
-  <SectionAnchor id="section-a">
+  <SectionAnchor id="me">
     <SectionLayout sectionTitle="Me, Myself & I">
       <DisplayProse>
         <p>
@@ -59,7 +70,7 @@
     </SectionLayout>
   </SectionAnchor>
 
-  <SectionAnchor id="section-b">
+  <SectionAnchor id="more">
     <SectionLayout withHeaderSpacing sectionTitle="More">
       <DisplayProse>
         <h3>flaming.codes</h3>

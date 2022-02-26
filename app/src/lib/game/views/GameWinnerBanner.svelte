@@ -1,6 +1,7 @@
 <script lang="ts">
   import Button from "$lib/input/views/Button.svelte";
   import ButtonLink from "$lib/input/views/ButtonLink.svelte";
+  import { Route } from "$lib/nav/models/routes";
   import { fly } from "svelte/transition";
 
   export let name: string;
@@ -15,6 +16,8 @@
     {#if onResetup}
       <Button on:click={onResetup} variant="outline">Change settings</Button>
     {/if}
-    <ButtonLink href="/game" alt="Go back to all games" variant="outline">Back to games</ButtonLink>
+    <ButtonLink href={Route.Game} alt="Go back to all games" variant="outline"
+      >Back to games</ButtonLink
+    >
   </div>
 </div>

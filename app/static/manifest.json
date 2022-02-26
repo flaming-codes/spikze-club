@@ -3,7 +3,7 @@
   "background_color": "#fff",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/game",
   "name": "spikze.club",
   "description": "Scoreboard for local multiplayer dart matches",
   "short_name": "spikze.club",

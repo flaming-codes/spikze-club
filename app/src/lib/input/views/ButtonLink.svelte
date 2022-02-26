@@ -1,5 +1,6 @@
 <script lang="ts">
   import CarbonIcon from "$lib/icon/views/CarbonIcon.svelte";
+  import type { Route } from "$lib/nav/models/routes";
 
   import clsx from "clsx";
   import {
@@ -10,15 +11,10 @@
     buttonBaseColorMixin
   } from "../mixins/button";
 
-  export let href: string;
+  export let href: string | Route;
   export let alt: string;
   export let targetVariant: "external" | "section" = undefined;
   export let variant: "outline" | "bare" = undefined;
-
-  /*
-  rel={targetVariant === "external" && "external"}
-  target={targetVariant === "external" && "_blank"}
-  */
 </script>
 
 <a

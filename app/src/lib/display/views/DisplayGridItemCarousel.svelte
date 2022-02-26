@@ -5,6 +5,7 @@
 
   export let withInitialDelay: number = undefined;
   export let withRandomSeedInitialDelay: number = undefined;
+  export let withRandomInitialDirection: boolean = undefined;
   export let countItems: number;
   export let directions: CarouselDirection[] = _directions;
 
@@ -13,7 +14,8 @@
 
   let index = 0;
   let isVisible = true;
-  let direction = directions[0];
+  let direction =
+    directions[withRandomInitialDirection ? Math.floor(Math.random() * directions.length) : 0];
   let timer: NodeJS.Timeout;
 
   $: if (isVisible) {

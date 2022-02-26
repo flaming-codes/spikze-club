@@ -69,10 +69,7 @@
   });
 </script>
 
-<ScreenWakeLock
-  on:change={(event) => console.log("released", event.detail)}
-  on:error={(event) => console.log("err", event.detail)}
-/>
+<ScreenWakeLock />
 
 <SectionLayout withHeaderSpacing withContentTopSpacing sectionTitle="Turf Wars">
   <div slot="header">

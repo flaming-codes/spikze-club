@@ -1,11 +1,11 @@
 <script>
+  import "../app.css";
+
   import FooterSitemap from "$lib/footer/views/FooterSitemap.svelte";
   import PageLayout from "$lib/layout/views/PageLayout.svelte";
-  import "../app.css";
 </script>
 
 <svelte:head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link crossorigin rel="preconnect" href="https://fonts.gstatic.com" />
   <link crossorigin rel="preconnect" href="https://fonts.googleapis.com" />
 
@@ -19,6 +19,6 @@
 
 <slot />
 
-<PageLayout class="mt-36 mx-4">
+<PageLayout class="mt-36 px-4">
   <FooterSitemap />
 </PageLayout>

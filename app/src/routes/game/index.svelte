@@ -15,7 +15,7 @@
   import PrimaryNavigationGridLayout from "$lib/layout/views/PrimaryNavigationGridLayout.svelte";
   import ButtonLink from "$lib/input/views/ButtonLink.svelte";
   import SectionAnchor from "$lib/section/views/SectionAnchor.svelte";
-  import { getAnchorRef } from "$lib/nav/models/routes";
+  import { getAnchorRef, Route } from "$lib/nav/models/routes";
   import DisplayGrid from "$lib/display/views/DisplayGrid.svelte";
   import DisplayGridItem from "$lib/display/views/DisplayGridItem.svelte";
   import FeatureGridItemSimpleTupleDisplay from "$lib/display/views/FeatureGridItemSimpleTupleDisplay.svelte";
@@ -62,7 +62,11 @@
 
         <div class="col-span-2">
           <DisplayGridItem color="tinted">
-            <DisplayGridItemCarousel countItems={2} withRandomSeedInitialDelay={700}>
+            <DisplayGridItemCarousel
+              withRandomInitialDirection
+              countItems={2}
+              withRandomSeedInitialDelay={700}
+            >
               <FeatureGridItemSimpleTupleDisplay slot="0" value="Around-the-clock" label="Game" />
               <FeatureGridItemSimpleTupleDisplay slot="1" value="Turf Wars" label="Game" />
             </DisplayGridItemCarousel>
@@ -71,7 +75,11 @@
 
         <div class="grid grid-cols-2 grid-rows-2">
           <DisplayGridItem color="bright">
-            <DisplayGridItemCarousel countItems={2} withRandomSeedInitialDelay={-1200}>
+            <DisplayGridItemCarousel
+              withRandomInitialDirection
+              countItems={2}
+              withRandomSeedInitialDelay={-1200}
+            >
               <img slot="0" alt="" class="h-full w-full object-cover" src={demoUrls[3]} />
               <FeatureGridItemSimpleTupleDisplay slot="1" size="md" value="Offline" />
               <img slot="2" alt="" class="h-full w-full object-cover" src={demoUrls[4]} />
@@ -80,7 +88,11 @@
           </DisplayGridItem>
 
           <DisplayGridItem color="muted">
-            <DisplayGridItemCarousel countItems={4} withRandomSeedInitialDelay={698}>
+            <DisplayGridItemCarousel
+              withRandomInitialDirection
+              countItems={4}
+              withRandomSeedInitialDelay={698}
+            >
               <FeatureGridItemSimpleTupleDisplay slot="0" value="1-4" label="Players" />
               <img slot="1" alt="" class="h-full w-full object-cover" src={demoUrls[5]} />
               <img slot="2" alt="" class="h-full w-full object-cover" src={demoUrls[6]} />
@@ -89,7 +101,11 @@
           </DisplayGridItem>
 
           <DisplayGridItem>
-            <DisplayGridItemCarousel countItems={3} withRandomSeedInitialDelay={-1800}>
+            <DisplayGridItemCarousel
+              withRandomInitialDirection
+              countItems={3}
+              withRandomSeedInitialDelay={-1800}
+            >
               <img slot="0" alt="" class="h-full w-full object-cover" src={demoUrls[7]} />
               <img slot="1" alt="" class="h-full w-full object-cover" src={demoUrls[8]} />
               <img slot="2" alt="" class="h-full w-full object-cover" src={demoUrls[9]} />
@@ -97,7 +113,11 @@
           </DisplayGridItem>
 
           <DisplayGridItem color="dark">
-            <DisplayGridItemCarousel countItems={2} withRandomSeedInitialDelay={-200}>
+            <DisplayGridItemCarousel
+              withRandomInitialDirection
+              countItems={2}
+              withRandomSeedInitialDelay={-200}
+            >
               <FeatureGridItemSimpleTupleDisplay slot="0" size="md" value="Install locally" />
               <FeatureGridItemSimpleTupleDisplay slot="1" size="md" value="Enjoy Darts" />
             </DisplayGridItemCarousel>
@@ -105,7 +125,11 @@
         </div>
 
         <DisplayGridItem color="midnight">
-          <DisplayGridItemCarousel countItems={2} withRandomSeedInitialDelay={3000}>
+          <DisplayGridItemCarousel
+            withRandomInitialDirection
+            countItems={2}
+            withRandomSeedInitialDelay={3000}
+          >
             <FeatureGridItemSimpleTupleDisplay slot="0" value="March 2022" label="Next update" />
             <FeatureGridItemSimpleTupleDisplay slot="1" value="42" label="Total plays" />
           </DisplayGridItemCarousel>
@@ -143,10 +167,10 @@
         </p>
       </div>
       <PrimaryNavigationGridLayout slot="primaryNavigation">
-        <ButtonLink href="/game/turf-wars/session" alt="Start a session of good 'ol Turf Wars">
+        <ButtonLink href={Route.TurfWarsSession} alt="Start a session of good 'ol Turf Wars">
           Start session
         </ButtonLink>
-        <ButtonLink variant="outline" href="/game/turf-wars" alt="Link to Turf Wars game">
+        <ButtonLink variant="outline" href={Route.TurfWars} alt="Link to Turf Wars game">
           Show details
         </ButtonLink>
       </PrimaryNavigationGridLayout>
@@ -162,17 +186,10 @@
         </p>
       </div>
       <PrimaryNavigationGridLayout slot="primaryNavigation">
-        <ButtonLink
-          href="/game/around-the-clock/session"
-          alt="Start a session of 'Around the clock'"
-        >
+        <ButtonLink href={Route.AtcSession} alt="Start a session of 'Around the clock'">
           Start session
         </ButtonLink>
-        <ButtonLink
-          variant="outline"
-          href="/game/around-the-clock"
-          alt="Link to around the clock game"
-        >
+        <ButtonLink variant="outline" href={Route.Atc} alt="Link to around the clock game">
           Learn more
         </ButtonLink>
       </PrimaryNavigationGridLayout>

@@ -17,6 +17,7 @@
   import DisplayGridItemCarousel from "$lib/display/views/DisplayGridItemCarousel.svelte";
   import DisplaySingularCarouselTitle from "$lib/display/views/DisplaySingularCarouselTitle.svelte";
   import DisplayProse from "$lib/display/views/DisplayProse.svelte";
+  import { Route } from "$lib/nav/models/routes";
 </script>
 
 <PageLayout>
@@ -46,14 +47,15 @@
       </p>
       <p>
         For more information about privacy, see the <a
-          href="/about/privacy"
+          href={Route.Privacy}
           alt="Privacy documentation">Privacy Page</a
         >.
       </p>
       <p>
         For more information about the creator, see <a
           href="https://flaming.codes/about"
-          alt="Personal site of Tom Schönmann">flaming.codes</a
+          alt="Personal site of Tom Schönmann"
+          rel="external">flaming.codes</a
         >.
       </p>
       <p>🇪🇺 Made in Europe</p>

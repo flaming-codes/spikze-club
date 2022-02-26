@@ -1,10 +1,13 @@
 <script lang="ts">
+  import { Route } from "$lib/nav/models/routes";
+
   const links: { href: string; label: string }[] = [
-    { href: "/", label: "Start" },
-    { href: "/game", label: "Games" },
-    { href: "/about", label: "About" },
-    { href: "/about/privacy", label: "Privacy" },
-    { href: "/about/imprint", label: "Imprint" }
+    { href: Route.Start, label: "Start" },
+    { href: Route.Game, label: "Games" },
+    { href: Route.About, label: "About" },
+    { href: Route.Privacy, label: "Privacy" },
+    { href: Route.Imprint, label: "Imprint" },
+    { href: Route.Licenses, label: "Licenses" }
   ];
 </script>
 

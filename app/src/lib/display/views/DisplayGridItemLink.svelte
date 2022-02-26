@@ -1,11 +1,9 @@
 <script lang="ts">
   import CarbonIcon from "$lib/icon/views/CarbonIcon.svelte";
-
-  import Icon from "@iconify/svelte";
-
+  import type { Route } from "$lib/nav/models/routes";
   import clsx from "clsx";
 
-  export let href: string;
+  export let href: string | Route;
   export let alt: string;
   export let isExternal: boolean = undefined;
 

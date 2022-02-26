@@ -22,6 +22,7 @@
   import DisplayGridItemLink from "$lib/display/views/DisplayGridItemLink.svelte";
   import type { Load } from "@sveltejs/kit";
   import PwaInstallPromptButton from "$lib/input/views/PWAInstallPromptButton.svelte";
+  import { Route } from "$lib/nav/models/routes";
 
   const directions: CarouselDirection[] = [
     {
@@ -55,7 +56,7 @@
   <SectionLayout>
     <DisplayGrid slot="header" variant="4/3">
       <DisplayGridItem color="bright" class="col-span-2 row-span-2">
-        <DisplayGridItemCarousel {directions} countItems={3}>
+        <DisplayGridItemCarousel withRandomInitialDirection {directions} countItems={3}>
           <DisplaySingularCarouselTitle slot="0" label="spikze.club" widthVariant="double" />
           <DisplaySingularCarouselTitle slot="1" label="darts arcade" widthVariant="double" />
           <DisplaySingularCarouselTitle slot="2" label="scoreboard" widthVariant="double" />
@@ -63,7 +64,12 @@
       </DisplayGridItem>
 
       <DisplayGridItem color="muted" class="col-span-2 row-span-2">
-        <DisplayGridItemCarousel {directions} countItems={3} withInitialDelay={150}>
+        <DisplayGridItemCarousel
+          withRandomInitialDirection
+          {directions}
+          countItems={3}
+          withInitialDelay={150}
+        >
           <DisplaySingularCarouselTitle
             slot="0"
             label="spikze.club"
@@ -87,6 +93,7 @@
 
       <DisplayGridItem color="muted" class="col-span-2">
         <DisplayGridItemCarousel
+          withRandomInitialDirection
           {directions}
           countItems={5}
           withInitialDelay={500}
@@ -122,7 +129,7 @@
         <DisplayGridItemLink
           isExternal
           class="transform duration-300 group-hover:rotate-[30deg] motion-reduce:transition-none"
-          href="/game/around-the-clock"
+          href={Route.Atc}
           alt="Link to the game 'Around the clock'"
         >
           <FeatureGridItemSimpleTupleDisplay>
@@ -136,11 +143,11 @@
         <DisplayGridItemLink
           isExternal
           class="transform duration-700 group-hover:font-bold hover:uppercase motion-reduce:transition-none"
-          href="/game/turf-wars"
+          href={Route.TurfWars}
           alt="Link to the game 'Turf Wars'"
         >
           <FeatureGridItemSimpleTupleDisplay>
-            <span slot="value">Turf War</span>
+            <span slot="value">Turf Wars</span>
             <span slot="label">Game</span>
           </FeatureGridItemSimpleTupleDisplay>
         </DisplayGridItemLink>
@@ -153,8 +160,8 @@
       <h1>Hi there!</h1>
     </ProminentDisplayTitle>
     <PrimaryNavigationGridLayout slot="primaryNavigation">
-      <ButtonLink href="/game" alt="All games">All games</ButtonLink>
-      <ButtonLink href="/about" alt="About" variant="outline">About</ButtonLink>
+      <ButtonLink href={Route.Game} alt="All games">All games</ButtonLink>
+      <ButtonLink href={Route.About} alt="About" variant="outline">About</ButtonLink>
     </PrimaryNavigationGridLayout>
 
     <div class="prose prose-lg">

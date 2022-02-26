@@ -6,6 +6,7 @@
   import SectionLayout from "$lib/layout/views/SectionLayout.svelte";
   import clsx from "clsx";
   import { onDestroy, onMount } from "svelte";
+  import { ScreenWakeLock } from "svelte-screen-wake-lock";
   import { boardNumbersNative } from "../constants/board";
   import GamePlayersRow from "../views/GamePlayersRow.svelte";
   import GameTimerView from "../views/GameTimerView.svelte";
@@ -85,7 +86,6 @@
     scoreNumbers = [...next];
   };
 
-  $: console.log("sc", scoreNumbers);
   onMount(() => {
     timer.start();
     scoreNumbers = initScoreNumbers();
@@ -96,6 +96,8 @@
     store.reset();
   });
 </script>
+
+<ScreenWakeLock />
 
 <SectionLayout withHeaderSpacing withContentTopSpacing sectionTitle="Around the clock">
   <div slot="header">
