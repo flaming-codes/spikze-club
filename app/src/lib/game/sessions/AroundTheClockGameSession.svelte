@@ -87,12 +87,12 @@
   };
 
   onMount(() => {
-    timer.start();
+    timer?.start();
     scoreNumbers = initScoreNumbers();
   });
 
   onDestroy(() => {
-    timer.stop();
+    timer?.stop();
     store.reset();
   });
 </script>

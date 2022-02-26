@@ -18,7 +18,7 @@
   let timer: any;
 
   $: if ($winnerIndex >= 0) {
-    timer.stop();
+    timer?.stop();
     state.set("done");
   }
 
@@ -53,18 +53,18 @@
   const reset = (flags?: { withState?: boolean }) => () => {
     winnerIndex.set(undefined);
     scores = composeEmptyScores();
-    timer.reset();
+    timer?.reset();
 
     if (flags?.withState) $state = "setup";
   };
 
   onMount(() => {
     scores = composeEmptyScores();
-    timer.start();
+    timer?.start();
   });
 
   onDestroy(() => {
-    timer.stop();
+    timer?.stop();
     store.reset();
   });
 </script>
