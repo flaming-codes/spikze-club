@@ -39,16 +39,27 @@ worker.addEventListener("activate", (event) => {
   );
 });
 
-function generateSitemapFromBuild(build: string[]) {
-  const paths = build
-    .filter((path) => path.startsWith("/_app/pages/"))
-    .map((p) => p.replace("/_app/pages", ""))
-    .map((p) => p.substring(0, p.lastIndexOf(".")))
-    .map((p) => p.substring(0, p.lastIndexOf(".")))
-    .map((p) => p.replace("/index", ""))
-    .filter((p) => p !== "/__layout");
+/**
+ * Best-effort of converting the given array of build-files
+ * to a set of paths for precaching.
+ *
+ * @param build   Data source.
+ * @returns       Array of paths from generated set.
+ */
+function generateSitemapFromBuild(build: string[]): string[] {
+  const paths = new Set(
+    build
+      .filter((path) => path.startsWith("/_app/pages/"))
+      .map((p) => p.replace("/_app/pages", ""))
+      .map((p) => p.substring(0, p.lastIndexOf(".")))
+      .map((p) => p.substring(0, p.lastIndexOf(".")))
+      .map((p) => p.replace("/index", "/"))
+      .filter((p) => p !== "/__layout")
+      .filter((p) => !p.includes("__layout"))
+      .filter(Boolean)
+  );
 
-  return paths;
+  return Array.from(paths);
 }
 
 /**
