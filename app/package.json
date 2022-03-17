@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "svelte-kit dev",
-    "dev:msw": "concurrently \"cd msw && ts-node server.ts\" \"npm run dev\"",
+    "dev:msw-server": "concurrently \"cd msw && ts-node server.ts\" \"npm run dev\"",
     "build": "npm run dep:gen && svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
